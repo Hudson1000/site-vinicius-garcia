@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinicius Garcia Escola de Jiu-Jitsu | Cascavel – PR</title>
+    <meta name="description"
+        content="Escola de Jiu-Jitsu especializada em desenvolvimento pessoal. Programas para Adultos, Crianças, Particulares, Musculação e Yoga. Cascavel – PR." />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': '#0a0a0a',
+                        'surface': '#111111',
+                        'raised': '#181818',
+                        'edge': '#252525',
+                        'gold': '#C9A84C',
+                        'gold-lt': '#DDB96A',
+                        'muted': '#6b6b6b',
+                        'subtle': '#3a3a3a',
+                    },
+                    fontFamily: {
+                        display: ['"Bebas Neue"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            color: #e8e8e8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navbar ── */
+        #navbar {
+            transition: background 0.35s, border-color 0.35s;
+        }
+
+        #navbar.scrolled {
+            background: rgba(10, 10, 10, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom-color: #252525;
+        }
+
+        /* ── Hero ── */
+        #hero {
+            position: relative;
+            min-height: 100svh;
+            min-height: 100vh;
+            /* fallback */
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                url('images/fachada%20vini.png') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── Gold divider ── */
+        .g-line {
+            display: block;
+            width: 44px;
+            height: 3px;
+            background: #C9A84C;
+            border-radius: 2px;
+        }
+
+        /* ── Program cards ── */
+        .p-card {
+            transition: border-color .3s, transform .3s, box-shadow .3s;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .p-card:hover {
+            border-color: #C9A84C;
+            transform: translateY(-5px);
+            box-shadow: 0 0 36px rgba(201, 168, 76, .12);
+        }
+
+        /* ── Pricing cards ── */
+        .pr-card {
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .pr-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* ── Reveal ── */
+        .rv {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Mobile menu ── */
+        #mob-nav {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, opacity .4s ease;
+        }
+
+        #mob-nav.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* ── Pricing freq table ── */
+        .freq-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #252525;
+        }
+
+        .freq-row:last-child {
+            border-bottom: none;
+        }
+
+        /* ── Services grid ── */
+        .svc {
+            border: 1px solid #252525;
+            border-radius: 12px;
+            padding: 28px 24px;
+            background: #111111;
+            transition: border-color .3s;
+        }
+
+        .svc:hover {
+            border-color: #C9A84C;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+    <header id="navbar" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#hero" class="font-display text-xl tracking-[.2em] text-white hover:text-gold transition-colors">
+                VG <span class="text-white">JIU-JITSU</span>
+            </a>
+
+            <!-- Desktop links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#programas"
+                    class="text-[13px] font-medium text-muted hover:text-white transition-colors tracking-wide">Programas</a>
+                <a href="#planos"
+                    class="text-[13px] font-medium text-muted hover:text-white transition-colors tracking-wide">Planos</a>
+                <a href="#servicos"
+                    class="text-[13px] font-medium text-muted hover:text-white transition-colors tracking-wide">Avulsos</a>
+                <a href="#contato"
+                    class="text-[13px] font-medium text-muted hover:text-white transition-colors tracking-wide">Contato</a>
+                <a href="#contato"
+                    class="ml-4 px-5 py-2 border border-white text-white text-[13px] font-semibold rounded hover:bg-white hover:text-black transition-all tracking-wide">
+                    Aula Experimental
+                </a>
+            </nav>
+
+            <!-- Hamburger -->
+            <button id="ham" class="md:hidden p-1 flex flex-col gap-[5px]" aria-label="Menu">
+                <span id="b1" class="w-6 h-[2px] bg-white block transition-all origin-center"></span>
+                <span id="b2" class="w-6 h-[2px] bg-white block transition-all"></span>
+                <span id="b3" class="w-6 h-[2px] bg-white block transition-all origin-center"></span>
+            </button>
+        </div>
+
+        <!-- Mobile -->
+        <div id="mob-nav" class="md:hidden bg-surface border-t border-edge px-6">
+            <nav class="flex flex-col py-5 gap-5">
+                <a href="#programas" class="text-sm text-muted hover:text-white transition-colors"
+                    onclick="closeMob()">Programas</a>
+                <a href="#planos" class="text-sm text-muted hover:text-white transition-colors"
+                    onclick="closeMob()">Planos</a>
+                <a href="#servicos" class="text-sm text-muted hover:text-white transition-colors"
+                    onclick="closeMob()">Avulsos</a>
+                <a href="#contato" class="text-sm text-muted hover:text-white transition-colors"
+                    onclick="closeMob()">Contato</a>
+                <a href="#contato"
+                    class="text-center py-3 border border-white text-white text-sm font-semibold rounded hover:bg-white hover:text-black transition-all"
+                    onclick="closeMob()">
+                    Aula Experimental
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+    <section id="hero">
+        <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center pt-24 pb-24 sm:pt-28 sm:pb-36">
+
+            <!-- Tagline chip -->
+            <div class="mb-6 rv on" style="transition-delay:.05s">
+                <span
+                    class="inline-flex flex-wrap items-center justify-center gap-2 text-[11px] font-semibold tracking-[.22em] text-[#A0A0A0] border border-white/20 bg-white/[.06] px-4 py-2 rounded-full uppercase max-w-[90vw] sm:tracking-[.32em] sm:px-5">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    Comunidade Acolhedora e Inclusiva
+                </span>
+            </div>
+
+            <!-- H1 -->
+            <h1 class="font-display text-[clamp(2.8rem,10vw,7rem)] leading-[.92] tracking-wide text-white mb-5 rv on"
+                style="transition-delay:.15s">
+                VINICIUS GARCIA<br />
+                <span class="text-white">ESCOLA DE</span><br />
+                JIU-JITSU
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="max-w-lg mx-auto text-[14px] sm:text-[15px] text-zinc-400 leading-relaxed mb-8 sm:mb-10 rv on"
+                style="transition-delay:.28s">
+                Somos uma Escola de Jiu-Jitsu especializada em desenvolvimento pessoal.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col items-stretch sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4 rv on"
+                style="transition-delay:.4s">
+                <a href="#contato" id="cta-hero"
+                    class="block text-center px-8 py-4 bg-white text-black font-bold text-[13px] tracking-[.18em] rounded hover:bg-zinc-100 transition-all shadow-lg shadow-black/25 uppercase">
+                    Agende sua Aula Experimental
+                </a>
+                <a href="#programas"
+                    class="block text-center px-8 py-4 border border-white/25 text-white font-medium text-[13px] tracking-wide rounded hover:border-white/55 transition-all uppercase">
+                    Nossos Programas
+                </a>
+            </div>
+
+            <!-- Scroll hint -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-35">
+                <span class="text-[10px] tracking-widest text-zinc-500 uppercase">Scroll</span>
+                <div class="w-px h-8 bg-gradient-to-b from-zinc-500 to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════ -->
+    <div class="border-y border-edge bg-surface rv">
+        <div class="max-w-7xl mx-auto px-6 py-7 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+            <!-- Bloco 1: Troféu -->
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center h-[3rem]">
+                    <svg class="w-[2.4rem] h-[2.4rem] text-gold" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 15.5A6.5 6.5 0 0 1 5.5 9V4h13v5a6.5 6.5 0 0 1-6.5 6.5zm0 0v3m-3 1.5h6M4 4H2v3a3 3 0 0 0 3 3h.5M20 4h2v3a3 3 0 0 1-3 3h-.5" />
+                    </svg>
+                </div>
+                <p class="text-[11px] text-muted uppercase tracking-[.18em]">Melhor Estrutura da Região</p>
+            </div>
+
+            <!-- Bloco 2: 200+ -->
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center h-[3rem]">
+                    <p class="font-display text-[2.6rem] text-gold tracking-wide leading-none">200+</p>
+                </div>
+                <p class="text-[11px] text-muted uppercase tracking-[.18em]">Alunos Matriculados</p>
+            </div>
+
+            <!-- Bloco 3: 4 -->
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center h-[3rem]">
+                    <p class="font-display text-[2.6rem] text-gold tracking-wide leading-none">4</p>
+                </div>
+                <p class="text-[11px] text-muted uppercase tracking-[.18em]">Fases Infantis</p>
+            </div>
+
+            <!-- Bloco 4: 5 -->
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center h-[3rem]">
+                    <p class="font-display text-[2.6rem] text-gold tracking-wide leading-none">5</p>
+                </div>
+                <p class="text-[11px] text-muted uppercase tracking-[.18em]">Modalidades</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+     PROGRAMAS
+════════════════════════════════════════ -->
+    <section id="programas" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-14 rv">
+                <span class="g-line mx-auto mb-5"></span>
+                <h2 class="font-display text-[clamp(2.2rem,5vw,4rem)] text-white tracking-wide mb-3">NOSSOS PROGRAMAS
+                </h2>
+                <p class="text-muted text-sm max-w-md mx-auto leading-relaxed">
+                    Modalidades estruturadas para cada fase da sua jornada — do iniciante ao competidor.
+                </p>
+            </div>
+
+            <!-- Grid 5 cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+                <!-- 1 · Adulto -->
+                <a href="programas/adulto.html" class="p-card rv border border-edge bg-surface rounded-2xl p-8">
+                    <div
+                        class="w-11 h-11 flex items-center justify-center rounded-xl bg-raised border border-edge mb-6">
+                        <!-- Shield icon -->
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3l8 3v5c0 5-3.33 8.67-8 10C7.33 19.67 4 16 4 11V6l8-3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-[1.65rem] text-white tracking-wide mb-3">JIU-JITSU ADULTO</h3>
+                    <p class="text-muted text-[13.5px] leading-relaxed mb-6">
+                        Treinos completos para todos os níveis. Do iniciante que busca defesa pessoal ao atleta de
+                        competição.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Iniciante</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Intermediário</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Competição</span>
+                    </div>
+                    <p class="text-gold text-[12px] font-semibold tracking-wide">Ver programa →</p>
+                </a>
+
+                <!-- 2 · Infantil -->
+                <a href="programas/infantil.html" class="p-card rv border border-edge bg-surface rounded-2xl p-8">
+                    <div
+                        class="w-11 h-11 flex items-center justify-center rounded-xl bg-raised border border-edge mb-6">
+                        <!-- Smiley icon -->
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <circle cx="12" cy="12" r="9" />
+                            <path stroke-linecap="round" d="M8.5 14.5s1.5 2 3.5 2 3.5-2 3.5-2" />
+                            <circle cx="9" cy="10" r=".8" fill="currentColor" />
+                            <circle cx="15" cy="10" r=".8" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-[1.65rem] text-white tracking-wide mb-3">JIU-JITSU INFANTIL</h3>
+                    <p class="text-muted text-[13.5px] leading-relaxed mb-6">
+                        Metodologia dividida em 4 fases (Baby, Kids 1, Kids 2 e Teens). Disciplina, confiança e
+                        coordenação motora.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Baby</span>
+                        <span class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Kids
+                            1 & 2</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Teens</span>
+                    </div>
+                    <p class="text-gold text-[12px] font-semibold tracking-wide">Ver programa →</p>
+                </a>
+
+                <!-- 3 · Particular -->
+                <a href="programas/particular.html" class="p-card rv border border-edge bg-surface rounded-2xl p-8">
+                    <div
+                        class="w-11 h-11 flex items-center justify-center rounded-xl bg-raised border border-edge mb-6">
+                        <!-- Target icon -->
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <circle cx="12" cy="12" r="9" />
+                            <circle cx="12" cy="12" r="5" />
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-[1.65rem] text-white tracking-wide mb-3">AULAS PARTICULARES</h3>
+                    <p class="text-muted text-[13.5px] leading-relaxed mb-6">
+                        Acelere sua evolução com atenção 100% exclusiva. Ajuste técnico refinado com o Professor
+                        Vinicius.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Personalizada</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Horário
+                            flexível</span>
+                    </div>
+                    <p class="text-gold text-[12px] font-semibold tracking-wide">Ver programa →</p>
+                </a>
+
+                <!-- 4 · Musculação -->
+                <a href="programas/musculacao.html" class="p-card rv border border-edge bg-surface rounded-2xl p-8">
+                    <div
+                        class="w-11 h-11 flex items-center justify-center rounded-xl bg-raised border border-edge mb-6">
+                        <!-- Dumbbell icon -->
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 12h12M4 9v6M8 7v10M16 7v10M20 9v6" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-[1.65rem] text-white tracking-wide mb-3">MUSCULAÇÃO</h3>
+                    <p class="text-muted text-[13.5px] leading-relaxed mb-6">
+                        Estrutura completa de força e condicionamento físico para prevenir lesões e potencializar sua
+                        luta.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Força</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Condicionamento</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Prevenção</span>
+                    </div>
+                    <p class="text-gold text-[12px] font-semibold tracking-wide">Ver programa →</p>
+                </a>
+
+                <!-- 5 · Yoga (col-span no sm) -->
+                <a href="programas/yoga.html"
+                    class="p-card rv border border-edge bg-surface rounded-2xl p-8 sm:col-span-2 lg:col-span-1">
+                    <div
+                        class="w-11 h-11 flex items-center justify-center rounded-xl bg-raised border border-edge mb-6">
+                        <!-- Lotus icon -->
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21c0 0-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10c2 0 4 1 7 5 3-4 5-5 7-5" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-[1.65rem] text-white tracking-wide mb-3">YOGA & MOBILIDADE</h3>
+                    <p class="text-muted text-[13.5px] leading-relaxed mb-6">
+                        Aumente sua flexibilidade e controle respiratório. O complemento perfeito para a longevidade no
+                        tatame.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Flexibilidade</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Respiração</span>
+                        <span
+                            class="text-[11px] px-3 py-1 rounded-full bg-raised border border-edge text-zinc-400">Longevidade</span>
+                    </div>
+                    <p class="text-gold text-[12px] font-semibold tracking-wide">Ver programa →</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     PRICING
+════════════════════════════════════════ -->
+    <section id="planos" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 bg-surface border-t border-edge">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-14 rv">
+                <span class="g-line mx-auto mb-5"></span>
+                <h2 class="font-display text-[clamp(2.2rem,5vw,4rem)] text-white tracking-wide mb-3">PLANOS &
+                    INVESTIMENTO</h2>
+                <p class="text-muted text-sm max-w-sm mx-auto leading-relaxed">
+                    Valores recorrentes do plano anual. Sem taxas escondidas.
+                </p>
+            </div>
+
+            <!-- 3 cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-7 items-stretch pt-6 md:pt-0">
+
+                <!-- ── Card 1: Baby & Kids 1 ── -->
+                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl p-8">
+                    <div class="mb-2">
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-2">Plano Anual</p>
+                        <h3 class="font-display text-3xl text-white tracking-wide leading-tight mb-1">BABY & KIDS 1</h3>
+                        <p class="text-muted text-[13px]">Atenção exclusiva e desenvolvimento motor.</p>
+                    </div>
+
+                    <div class="my-6">
+                        <p class="text-[11px] text-muted uppercase tracking-widest mb-1">A partir de</p>
+                        <span class="font-display text-5xl text-white tracking-wide">R$ 310</span>
+                        <span class="text-muted text-sm">/mês</span>
+                    </div>
+
+                    <!-- Freq table -->
+                    <div class="flex-1 mb-8">
+                        <p class="text-[10px] uppercase tracking-widest text-muted mb-3">Frequências</p>
+                        <div class="space-y-0">
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">2× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 310</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">3× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 360</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">4× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 410</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">5× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 460</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contato"
+                        class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase"
+                        onclick="setMsg('Aula Experimental Baby')">
+                        Agendar Experimental Baby
+                    </a>
+                </div>
+
+                <!-- ── Card 2: Regular ── -->
+                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl p-8">
+                    <div class="mb-2">
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-2">Plano Anual</p>
+                        <h3 class="font-display text-3xl text-white tracking-wide leading-tight mb-1">JIU-JITSU REGULAR
+                        </h3>
+                        <p class="text-muted text-[13px]">Kids 2 ao Adulto — metodologia completa.</p>
+                    </div>
+
+                    <div class="my-6">
+                        <p class="text-[11px] text-muted uppercase tracking-widest mb-1">A partir de</p>
+                        <span class="font-display text-5xl text-white tracking-wide">R$ 270</span>
+                        <span class="text-muted text-sm">/mês</span>
+                    </div>
+
+                    <div class="flex-1 mb-8">
+                        <p class="text-[10px] uppercase tracking-widest text-muted mb-3">Frequências</p>
+                        <div class="space-y-0">
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">2× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 270</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">3× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 310</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">4× por semana</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 350</span>
+                            </div>
+                            <div class="freq-row">
+                                <span class="text-[13px] text-zinc-300">Plano Full</span>
+                                <span class="text-[13px] font-semibold text-white">R$ 410</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contato"
+                        class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase"
+                        onclick="setMsg('Plano Jiu-Jitsu Regular')">
+                        Começar Agora
+                    </a>
+                </div>
+
+                <!-- ── Card 3: Black Belt Signature (VIP) ── -->
+                <div
+                    class="pr-card rv flex flex-col relative bg-gold rounded-2xl p-8 shadow-2xl shadow-gold/25 ring-1 ring-gold/70 mt-2 md:mt-0">
+
+                    <!-- Badge -->
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                        <span
+                            class="bg-black text-gold text-[10px] font-bold tracking-[.22em] uppercase px-5 py-1.5 rounded-full border border-gold shadow-lg">
+                            Experiência Completa
+                        </span>
+                    </div>
+
+                    <div class="mt-3 mb-2">
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-black/55 uppercase mb-2">Plano Premium
+                        </p>
+                        <h3 class="font-display text-3xl text-black tracking-wide leading-tight mb-1">BLACK
+                            BELT<br />SIGNATURE</h3>
+                        <p class="text-black/65 text-[13px]">Acesso total. Experiência de elite.</p>
+                    </div>
+
+                    <div class="my-6">
+                        <span class="font-display text-5xl text-black tracking-wide">R$ 850</span>
+                        <span class="text-black/55 text-sm">/mês</span>
+                    </div>
+
+                    <!-- Benefits -->
+                    <ul class="flex-1 space-y-3 mb-3">
+                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
+                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                            </svg>
+                            Aulas todos os dias (Plano Full)
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
+                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                            </svg>
+                            Academia de musculação inclusa
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
+                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                            </svg>
+                            1 Sessão de recovery mensal com Luana
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
+                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                            </svg>
+                            1 Aula particular mensal com Prof. Vinicius
+                        </li>
+                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
+                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
+                                stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                            </svg>
+                            15% de desconto em produtos
+                        </li>
+                    </ul>
+
+                    <!-- Savings -->
+                    <div class="mb-6 bg-black/10 rounded-xl px-4 py-3 text-center">
+                        <p class="text-[12px] font-bold text-black tracking-wide uppercase">
+                            💰 Economia de <strong>R$ 140</strong> todo mês
+                        </p>
+                    </div>
+
+                    <a href="#contato"
+                        class="block text-center py-4 bg-black text-gold text-[13px] font-bold rounded-xl hover:bg-zinc-900 transition-all tracking-[.16em] uppercase shadow-md"
+                        onclick="setMsg('Plano Black Belt Signature')">
+                        Quero ser Signature
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Pricing footnote -->
+            <p class="text-center text-muted text-[12.5px] mt-10 max-w-xl mx-auto leading-relaxed">
+                Consulte valores para planos mensais avulsos (sem vínculo) e a disponibilidade dos nossos uniformes.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     SERVIÇOS AVULSOS
+════════════════════════════════════════ -->
+    <section id="servicos" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 border-t border-edge">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-14 rv">
+                <span class="g-line mx-auto mb-5"></span>
+                <h2 class="font-display text-[clamp(2rem,4.5vw,3.5rem)] text-white tracking-wide mb-3">SERVIÇOS
+                    ADICIONAIS</h2>
+                <p class="text-muted text-sm max-w-sm mx-auto">Contratação avulsa, sem vínculo com plano.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+
+                <!-- Academia -->
+                <div class="svc rv text-center">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-raised border border-edge mx-auto mb-5">
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 12h12M4 9v6M8 7v10M16 7v10M20 9v6" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-white tracking-wide mb-2">MUSCULAÇÃO</h3>
+                    <p class="font-display text-3xl text-gold tracking-wide mb-2">R$ 120<span
+                            class="font-body text-base text-muted font-normal">/mês</span></p>
+                    <p class="text-muted text-[13px] leading-relaxed">Acesso completo ao nosso espaço de treinamento
+                        funcional e musculação.</p>
+                </div>
+
+                <!-- Particular -->
+                <div class="svc rv text-center">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-raised border border-edge mx-auto mb-5">
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <circle cx="12" cy="12" r="9" />
+                            <circle cx="12" cy="12" r="5" />
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-white tracking-wide mb-2">AULA PARTICULAR</h3>
+                    <p class="font-display text-3xl text-gold tracking-wide mb-2">R$ 250<span
+                            class="font-body text-base text-muted font-normal">/sessão</span></p>
+                    <p class="text-muted text-[13px] leading-relaxed">Treino exclusivo de 1h com Prof. Vinicius.</p>
+                </div>
+
+                <!-- Recovery -->
+                <div class="svc rv text-center">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-raised border border-edge mx-auto mb-5">
+                        <svg class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21c0 0-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10c2 0 4 1 7 5 3-4 5-5 7-5" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-white tracking-wide mb-2">RECOVERY — LUANA</h3>
+                    <p class="font-display text-3xl text-gold tracking-wide mb-2">R$ 210<span
+                            class="font-body text-base text-muted font-normal">/sessão</span></p>
+                    <p class="text-muted text-[13px] leading-relaxed">Recuperação muscular especializada com
+                        Fisioterapeuta Luana.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════ -->
+    <section class="py-16 sm:py-24 px-5 sm:px-6 text-center border-t border-edge rv">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="font-display text-[clamp(2.5rem,7vw,5.5rem)] text-white tracking-wide mb-6 leading-tight">
+                COMECE<br /><span class="text-gold">HOJE.</span>
+            </h2>
+            <p class="text-muted mb-10 text-[15px] leading-relaxed max-w-md mx-auto">
+                Venha conhecer a nossa comunidade e dar o primeiro passo na sua jornada.
+            </p>
+            <a href="#contato"
+                class="inline-block px-10 py-5 bg-white text-black font-bold text-[13px] tracking-[.18em] rounded hover:bg-zinc-100 transition-all shadow-xl shadow-black/20 uppercase">
+                Quero minha aula experimental
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     CONTATO
+════════════════════════════════════════ -->
+    <section id="contato" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 bg-surface border-t border-edge">
+        <div class="max-w-5xl mx-auto">
+
+            <div class="text-center mb-14 rv">
+                <span class="g-line mx-auto mb-5"></span>
+                <h2 class="font-display text-[clamp(2rem,4.5vw,3.5rem)] text-white tracking-wide mb-3">FALE CONOSCO</h2>
+                <p class="text-muted text-sm">Agende sua aula experimental e venha conhecer a nossa comunidade.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-14 items-start">
+
+                <!-- Info -->
+                <div class="space-y-8 rv">
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">Endereço</p>
+                        <p class="text-zinc-300 text-[14px] leading-relaxed">
+                            Rua Erotides Padilha, 1 — Lote 2C e 03B, Quadra 52<br />
+                            Jardim Acácia (esquina) · Tangará da Serra/MT<br />
+                            CEP: 78300-033
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">WhatsApp</p>
+                        <a href="https://wa.me/554391958573"
+                            class="text-zinc-300 text-[14px] hover:text-white transition-colors">(43) 9 9195-8573</a>
+                    </div>
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">Horários</p>
+                        <p class="text-zinc-300 text-[14px] leading-relaxed">Seg – Sex: 07h às 21h<br />Sáb: 09h às 13h
+                        </p>
+                    </div>
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://www.instagram.com/escolaviniciusgarcia" target="_blank" rel="noopener"
+                            aria-label="Instagram"
+                            class="w-10 h-10 flex items-center justify-center rounded-lg border border-edge text-muted hover:text-gold hover:border-gold transition-all">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form class="rv space-y-4" onsubmit="handleForm(event)">
+                    <input type="text" id="f-name" placeholder="Seu nome completo" required
+                        class="w-full bg-bg border border-edge rounded-xl px-4 py-3 text-sm text-white placeholder-muted focus:outline-none focus:border-gold transition-colors" />
+                    <input type="tel" id="f-phone" placeholder="WhatsApp (DDD + número)" required
+                        class="w-full bg-bg border border-edge rounded-xl px-4 py-3 text-sm text-white placeholder-muted focus:outline-none focus:border-gold transition-colors" />
+                    <select id="f-plan"
+                        class="w-full bg-bg border border-edge rounded-xl px-4 py-3 text-sm text-zinc-400 focus:outline-none focus:border-gold transition-colors">
+                        <option value="">Qual programa te interessa?</option>
+                        <option>Jiu-Jitsu Adulto</option>
+                        <option>Jiu-Jitsu Infantil (Baby / Kids 1)</option>
+                        <option>Jiu-Jitsu Infantil (Kids 2 / Teens)</option>
+                        <option>Aula Particular</option>
+                        <option>Musculação (avulso)</option>
+                        <option>Yoga & Mobilidade</option>
+                        <option>Black Belt Signature</option>
+                        <option>Recovery com Luana</option>
+                    </select>
+                    <textarea id="f-msg" rows="3" placeholder="Mensagem (opcional)"
+                        class="w-full bg-bg border border-edge rounded-xl px-4 py-3 text-sm text-white placeholder-muted focus:outline-none focus:border-gold transition-colors resize-none"></textarea>
+                    <button type="submit"
+                        class="w-full py-4 bg-[#25D366] text-white font-bold text-[13px] tracking-[.18em] rounded-xl hover:bg-[#20b858] transition-all uppercase shadow-lg shadow-[#25D366]/30">
+                        Enviar pelo WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+    <footer class="border-t border-edge py-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="font-display text-xl text-white tracking-[.18em]">VG <span class="text-gold">JIU-JITSU</span></p>
+            <p class="text-muted text-[12px] text-center">
+                © 2024 Vinicius Garcia Escola de Jiu-Jitsu · Cascavel – PR · Todos os direitos reservados.
+            </p>
+            <div class="flex gap-6 text-[12px] text-muted">
+                <a href="#programas" class="hover:text-white transition-colors">Programas</a>
+                <a href="#planos" class="hover:text-white transition-colors">Planos</a>
+                <a href="#servicos" class="hover:text-white transition-colors">Avulsos</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+    <script>
+        // ── Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // ── Mobile menu toggle
+        const ham = document.getElementById('ham');
+        const mobNav = document.getElementById('mob-nav');
+        const b1 = document.getElementById('b1');
+        const b2 = document.getElementById('b2');
+        const b3 = document.getElementById('b3');
+        let open = false;
+
+        ham.addEventListener('click', () => {
+            open = !open;
+            mobNav.classList.toggle('open', open);
+            b1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
+            b2.style.opacity = open ? '0' : '1';
+            b3.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+        });
+
+        function closeMob() {
+            open = false;
+            mobNav.classList.remove('open');
+            b1.style.transform = ''; b2.style.opacity = '1'; b3.style.transform = '';
+        }
+
+        // ── Scroll reveal
+        const revealEls = document.querySelectorAll('.rv');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+        revealEls.forEach(el => io.observe(el));
+
+        // ── Pre-fill plan into form select
+        function setMsg(plan) {
+            const sel = document.getElementById('f-plan');
+            if (!sel) return;
+            for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].text.includes(plan) || plan.includes(sel.options[i].text.split(' ')[0])) {
+                    sel.selectedIndex = i; break;
+                }
+            }
+            sel.value = plan;
+        }
+
+        // ── WhatsApp form submission
+        function handleForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('f-name').value.trim();
+            const phone = document.getElementById('f-phone').value.trim();
+            const plan = document.getElementById('f-plan').value || 'Não especificado';
+            const msg = document.getElementById('f-msg').value.trim();
+            const text = encodeURIComponent(
+                `Olá, Professor Vinicius! 👋\n\nMeu nome é *${name}*\n📞 ${phone}\n🥋 Interesse: *${plan}*${msg ? '\n\n💬 ' + msg : ''}\n\nGostaria de agendar minha aula experimental!`
+            );
+            window.open(`https://wa.me/554391958573?text=${text}`, '_blank');
+        }
+    </script>
+
+
+    <!-- ════ WHATSAPP FLOATING BUTTON ════ -->
+    <style>
+        #wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        /* Tooltip */
+        #wa-float .wa-tip {
+            background: #111;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(6px);
+            transition: opacity .25s ease, transform .25s ease;
+            pointer-events: none;
+            border: 1px solid #252525;
+        }
+
+        #wa-float:hover .wa-tip,
+        #wa-float:focus .wa-tip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Button disc */
+        #wa-float .wa-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+            transition: transform .2s ease, box-shadow .2s ease;
+            flex-shrink: 0;
+        }
+
+        #wa-float:hover .wa-btn {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .6);
+        }
+
+        /* Pulse ring */
+        #wa-float .wa-btn::before {
+            content: '';
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, .35);
+            animation: wa-pulse 2.2s ease-out infinite;
+        }
+
+        @keyframes wa-pulse {
+            0% {
+                transform: scale(1);
+                opacity: .7;
+            }
+
+            70% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile: smaller disc, no tooltip */
+        @media (max-width: 480px) {
+            #wa-float {
+                bottom: 20px;
+                right: 16px;
+            }
+
+            #wa-float .wa-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            #wa-float .wa-btn::before {
+                width: 50px;
+                height: 50px;
+            }
+
+            #wa-float .wa-tip {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- ════════════════════════════════════════
+     LOCALIZAÇÃO
+════════════════════════════════════════ -->
+    <section class="border-t border-edge">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-16 sm:py-20">
+
+            <!-- Header -->
+            <div class="mb-10">
+                <span class="g-line mb-4"></span>
+                <h2 class="font-display text-[clamp(2rem,5vw,3.2rem)] text-white tracking-wide">COMO NOS <span
+                        class="text-gold">ENCONTRAR</span></h2>
+            </div>
+
+            <!-- Grid: Mapa + Info -->
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+
+                <!-- Mapa -->
+                <div class="rounded-2xl overflow-hidden border border-edge shadow-2xl shadow-black/40">
+                    <iframe title="Localização da Escola Vinicius Garcia"
+                        src="https://maps.google.com/maps?q=9GR9%2B4H+Tangar%C3%A1+da+Serra,+MT&output=embed&z=17"
+                        width="100%" height="380" style="border:0;display:block;filter:grayscale(25%) brightness(.85);"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Informações -->
+                <div class="flex flex-col justify-center space-y-6 py-2">
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">Endereço</p>
+                        <p class="text-white text-[15px] font-medium leading-relaxed">R. Arlindo Lopes da Silva,
+                            03<br />Jardim Europa<br />Tangará da Serra – MT<br /><span
+                                class="text-zinc-400 text-[13px]">CEP: 78300-033</span></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">Telefone</p>
+                        <a href="tel:+5565999876024"
+                            class="text-zinc-300 text-[15px] hover:text-white transition-colors">+55 (65) 9
+                            9987-6024</a>
+                    </div>
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">WhatsApp</p>
+                        <a href="https://wa.me/554391958573" target="_blank" rel="noopener"
+                            class="text-zinc-300 text-[15px] hover:text-white transition-colors">(43) 9 9195-8573</a>
+                    </div>
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase mb-2">Horários</p>
+                        <p class="text-zinc-300 text-[14px] leading-relaxed">Seg – Sex: 07h às 21h<br />Sáb: 09h às 13h
+                        </p>
+                    </div>
+                    <a href="https://www.google.com/maps/place/9GR9%2B4H+Tangar%C3%A1+da+Serra,+MT" target="_blank"
+                        rel="noopener"
+                        class="inline-flex items-center gap-3 self-start px-7 py-3.5 bg-white text-black font-bold text-[13px] tracking-[.12em] rounded-xl hover:bg-zinc-100 transition-all uppercase shadow-lg shadow-black/20">
+                        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        Abrir no Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ FOOTER ════ -->
+    <footer class="border-t border-edge bg-surface">
+        <div
+            class="max-w-7xl mx-auto px-5 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted">
+            <p>© 2025 Vinicius Garcia Escola de Jiu-Jitsu · Todos os direitos reservados.</p>
+            <a href="https://www.instagram.com/escolaviniciusgarcia" target="_blank" rel="noopener"
+                class="hover:text-white transition-colors">@escolaviniciusgarcia</a>
+        </div>
+    </footer>
+
+    <a id="wa-float" href="https://wa.me/554391958573" target="_blank" rel="noopener"
+        aria-label="Fale conosco pelo WhatsApp">
+        <span class="wa-tip">Fale conosco pelo WhatsApp</span>
+        <span class="wa-btn">
+            <!-- WhatsApp logo SVG -->
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16.002 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.334.626 4.619 1.815 6.624L2.667 29.333l6.896-1.773A13.3 13.3 0 0016.002 29.333c7.363 0 13.331-5.97 13.331-13.333 0-7.363-5.968-13.333-13.331-13.333z"
+                    fill="white" />
+                <path
+                    d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
+                    fill="#25D366" />
+            </svg>
+        </span>
+    </a>
+
+</body>
+
+</html>

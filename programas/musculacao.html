@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musculação | Vinicius Garcia Escola de Jiu-Jitsu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script>tailwind.config = { theme: { extend: { colors: { 'bg': '#0a0a0a', 'surface': '#111', 'raised': '#181818', 'edge': '#252525', 'gold': '#C9A84C', 'gold-lt': '#DDB96A', 'muted': '#6b6b6b' }, fontFamily: { display: ['"Bebas Neue"'], body: ['"Inter"'] } } } }</script>
+    <style>
+        body {
+            background: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            color: #e8e8e8;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .g-line {
+            display: block;
+            width: 44px;
+            height: 3px;
+            background: #C9A84C;
+            border-radius: 2px
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .gi {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #181818;
+            border: 1px solid #252525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .3s, border-color .3s
+        }
+
+        .gi:hover {
+            transform: scale(1.02);
+            border-color: #C9A84C
+        }
+
+        .gi img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        #nb {
+            transition: background .35s, border-color .35s
+        }
+
+        #nb.sc {
+            background: rgba(10, 10, 10, .94);
+            backdrop-filter: blur(14px);
+            border-bottom-color: #252525
+        }
+
+        #wa {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            z-index: 9999
+        }
+
+        #wa span {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+            transition: transform .2s
+        }
+
+        #wa span:hover {
+            transform: scale(1.08)
+        }
+
+        #wa span::before {
+            content: '';
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, .3);
+            animation: wap 2.2s ease-out infinite
+        }
+
+        @keyframes wap {
+            0% {
+                transform: scale(1);
+                opacity: .7
+            }
+
+            70% {
+                transform: scale(1.6);
+                opacity: 0
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="nb" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="../index.html"
+                class="font-display text-xl tracking-[.2em] text-white hover:text-gold transition-colors">VG <span
+                    class="text-white">JIU-JITSU</span></a>
+            <a href="../index.html#contato"
+                class="px-5 py-2 border border-white text-white text-[13px] font-semibold rounded hover:bg-white hover:text-black transition-all">Aula
+                Experimental</a>
+        </div>
+    </header>
+
+    <section class="relative pt-28 pb-16 px-5 border-b border-edge">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 text-[12px] text-muted mb-6">
+                <a href="../index.html" class="hover:text-white transition-colors">Início</a><span>/</span>
+                <a href="../index.html#programas" class="hover:text-white transition-colors">Programas</a><span>/</span>
+                <span class="text-white">Musculação</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+                <div>
+                    <span class="g-line mb-4"></span>
+                    <h1 class="font-display text-[clamp(2.8rem,7vw,5.5rem)] text-white tracking-wide leading-none mb-3">
+                        ACADEMIA DE<br /><span class="text-gold">MUSCULAÇÃO</span></h1>
+                    <p class="text-muted text-[14px] max-w-md">Força, condicionamento e prevenção de lesões — o
+                        complemento ideal para sua luta.</p>
+                </div>
+                <a href="../index.html"
+                    class="inline-flex items-center gap-2 text-[13px] text-muted hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>Voltar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 px-5">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <div class="rv space-y-8">
+                <div>
+                    <h2 class="font-display text-3xl text-white tracking-wide mb-4">SOBRE O PROGRAMA</h2>
+                    <p class="text-zinc-400 text-[14.5px] leading-relaxed mb-4">A academia de musculação da Escola
+                        Vinicius Garcia oferece estrutura completa para você desenvolver força, resistência e
+                        condicionamento físico — essencial para potencializar seu desempenho no tatame.</p>
+                    <p class="text-zinc-400 text-[14.5px] leading-relaxed">Com equipamentos de qualidade e um ambiente
+                        focado em resultados, você treina de forma inteligente, prevenindo lesões e construindo a base
+                        física que todo lutador precisa.</p>
+                </div>
+                <div>
+                    <h3 class="font-display text-2xl text-white tracking-wide mb-4">BENEFÍCIOS</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-[14px] text-zinc-300"><svg
+                                class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>Ganho de força funcional para o Jiu-Jitsu</li>
+                        <li class="flex items-start gap-3 text-[14px] text-zinc-300"><svg
+                                class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>Prevenção de lesões articulares e musculares</li>
+                        <li class="flex items-start gap-3 text-[14px] text-zinc-300"><svg
+                                class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>Melhora da composição corporal</li>
+                        <li class="flex items-start gap-3 text-[14px] text-zinc-300"><svg
+                                class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>Condicionamento cardiovascular e resistência</li>
+                        <li class="flex items-start gap-3 text-[14px] text-zinc-300"><svg
+                                class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>Acesso ilimitado — treine quando quiser</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-surface border border-edge rounded-xl p-5 text-center">
+                        <p class="font-display text-4xl text-gold tracking-wide">R$ 120</p>
+                        <p class="text-[11px] text-muted uppercase tracking-widest mt-1">mensalidade</p>
+                    </div>
+                    <div class="bg-surface border border-edge rounded-xl p-5 text-center">
+                        <p class="font-display text-4xl text-gold tracking-wide">∞</p>
+                        <p class="text-[11px] text-muted uppercase tracking-widest mt-1">acesso livre</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rv space-y-4">
+                <h3 class="font-display text-2xl text-white tracking-wide mb-2">GALERIA</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="gi col-span-2"><img src="../images/musculacao-1.jpg" alt="Academia"
+                            onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center gap-2 text-muted\'><svg class=\'w-8 h-8\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'M21 15l-5-5L5 21\'/></svg><span class=\'text-xs\'>Adicionar foto</span></div>'" />
+                    </div>
+                    <div class="gi"><img src="../images/musculacao-2.jpg" alt=""
+                            onerror="this.parentElement.innerHTML='<span class=\'text-muted text-xs\'>Foto</span>'" />
+                    </div>
+                    <div class="gi"><img src="../images/musculacao-3.jpg" alt=""
+                            onerror="this.parentElement.innerHTML='<span class=\'text-muted text-xs\'>Foto</span>'" />
+                    </div>
+                    <div class="gi"><img src="../images/musculacao-4.jpg" alt=""
+                            onerror="this.parentElement.innerHTML='<span class=\'text-muted text-xs\'>Foto</span>'" />
+                    </div>
+                    <div class="gi"><img src="../images/musculacao-5.jpg" alt=""
+                            onerror="this.parentElement.innerHTML='<span class=\'text-muted text-xs\'>Foto</span>'" />
+                    </div>
+                </div>
+                <p class="text-[11px] text-muted text-center">Adicione fotos em <code
+                        class="bg-raised px-1 rounded">images/musculacao-1.jpg</code></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-5 border-t border-edge text-center bg-surface">
+        <div class="max-w-xl mx-auto">
+            <h2 class="font-display text-[clamp(2rem,5vw,3.5rem)] text-white tracking-wide mb-4">COMECE A<br /><span
+                    class="text-gold">TREINAR</span></h2>
+            <p class="text-muted text-[14px] mb-8">Entre em contato e conheça nossa estrutura completa de musculação.
+            </p>
+            <a href="../index.html#contato"
+                class="inline-block px-10 py-4 bg-white text-black font-bold text-[13px] tracking-[.18em] rounded hover:bg-zinc-100 transition-all uppercase">Falar
+                com a Equipe</a>
+        </div>
+    </section>
+
+    <a id="wa" href="https://wa.me/554391958573" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span><svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                <path
+                    d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.334.626 4.619 1.815 6.624L2.667 29.333l6.896-1.773A13.3 13.3 0 0016 29.333c7.363 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667z"
+                    fill="white" />
+                <path
+                    d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
+                    fill="#25D366" />
+            </svg></span>
+    </a>
+    <script>
+        const nb = document.getElementById('nb');
+        window.addEventListener('scroll', () => nb.classList.toggle('sc', scrollY > 40), { passive: true });
+        document.querySelectorAll('.rv').forEach(el => new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('on') }, { threshold: .1 }).observe(el));
+    </script>
+</body>
+
+</html>
