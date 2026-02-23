@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uniformes & Equipamentos | Vinicius Garcia Escola de Jiu-Jitsu</title>
+    <meta name="description"
+        content="Uniformes e equipamentos oficiais da Escola Vinicius Garcia. Linha Bravour (fio importado EUA, UV50+) e Kimonos Braus importados da Austrália. Tangará da Serra/MT." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script>tailwind.config = { theme: { extend: { colors: { 'bg': '#0a0a0a', 'surface': '#111', 'raised': '#181818', 'edge': '#252525', 'gold': '#C9A84C', 'gold-lt': '#DDB96A', 'muted': '#6b6b6b' }, fontFamily: { display: ['"Bebas Neue"'], body: ['"Inter"'] } } } }</script>
+    <style>
+        body {
+            background: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            color: #e8e8e8;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .g-line {
+            display: block;
+            width: 44px;
+            height: 3px;
+            background: #C9A84C;
+            border-radius: 2px
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        #nb {
+            transition: background .35s, border-color .35s
+        }
+
+        #nb.sc {
+            background: rgba(10, 10, 10, .94);
+            backdrop-filter: blur(14px);
+            border-bottom-color: #252525
+        }
+
+        #wa {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            z-index: 9999
+        }
+
+        #wa span {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+            transition: transform .2s
+        }
+
+        #wa span::before {
+            content: '';
+            position: absolute;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, .3);
+            animation: wap 2.2s ease-out infinite
+        }
+
+        @keyframes wap {
+            0% {
+                transform: scale(1);
+                opacity: .7
+            }
+
+            70% {
+                transform: scale(1.6);
+                opacity: 0
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0
+            }
+        }
+
+        .prod-card {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color .3s, transform .3s
+        }
+
+        .prod-card:hover {
+            border-color: #C9A84C;
+            transform: translateY(-3px)
+        }
+
+        .prod-img {
+            aspect-ratio: 3/4;
+            background: #181818;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #252525
+        }
+
+        .prod-img svg {
+            width: 48px;
+            height: 48px;
+            color: #3a3a3a
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: 2px 10px;
+            border-radius: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header id="nb" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="hover:opacity-75 transition-opacity">
+                <img src="images/logo-branca.svg" alt="Vinicius Garcia Jiu-Jitsu" class="h-10 w-auto">
+            </a>
+            <a href="index.html#contato"
+                class="px-5 py-2 border border-white text-white text-[13px] font-semibold rounded hover:bg-white hover:text-black transition-all tracking-wide">Aula
+                Experimental</a>
+        </div>
+    </header>
+
+    <!-- HERO / PAGE HEADER -->
+    <section class="relative pt-28 pb-12 px-5 border-b border-edge">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 text-[12px] text-muted mb-6">
+                <a href="index.html" class="hover:text-white transition-colors">Início</a><span>/</span>
+                <span class="text-white">Uniformes & Equipamentos</span>
+            </div>
+            <span class="g-line mb-5"></span>
+            <h1 class="font-display text-[clamp(2.8rem,7vw,5.5rem)] text-white tracking-wide leading-none mb-3">
+                UNIFORMES &<br /><span class="text-gold">EQUIPAMENTOS</span>
+            </h1>
+            <p class="text-muted text-[14px] max-w-lg">Produtos oficiais da escola. Performance e qualidade para você
+                treinar com o melhor equipamento.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BRAVOUR ═══════════════ -->
+    <section class="py-16 sm:py-24 px-5 border-b border-edge">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section header -->
+            <div class="rv mb-12">
+                <span class="g-line mb-5"></span>
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Linha Performance
+                        </p>
+                        <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-none">
+                            BRAVOUR</h2>
+                    </div>
+                    <p class="text-zinc-400 text-[13.5px] max-w-md leading-relaxed">
+                        Parceria com a marca Bravour: <strong class="text-white">fio importado dos EUA</strong> (mesmo
+                        fio da Nike),
+                        <strong class="text-white">proteção UV50+</strong>, alta durabilidade e compressão técnica para
+                        <strong class="text-white">redução de fadiga muscular</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Products grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+
+                <!-- Camiseta dry fit -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">CAMISETA DRY FIT
+                            HIGHTECH</h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 185</p>
+                    </div>
+                </div>
+
+                <!-- Rash manga curta -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">RASH MANGA CURTA
+                        </h3>
+                        <div class="space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] text-zinc-400">Refletiva</span>
+                                <span class="font-display text-xl text-gold tracking-wide">R$ 215</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] text-zinc-400">Normal</span>
+                                <span class="font-display text-xl text-white tracking-wide">R$ 205</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rash manga longa -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">RASH MANGA LONGA
+                        </h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230</p>
+                    </div>
+                </div>
+
+                <!-- Bermudas e Shorts -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12l2 6-4 14H8L4 8z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-1">BERMUDA / SHORT
+                        </h3>
+                        <p class="text-[11px] text-zinc-400 mb-3">New Fight ou Comprida</p>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230</p>
+                    </div>
+                </div>
+
+                <!-- Linha Compressão Short -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12l2 6-4 14H8L4 8z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour · Compressão</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">SHORT COMPRESSÃO
+                        </h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 195</p>
+                    </div>
+                </div>
+
+                <!-- Linha Compressão Calça/Body/Top -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <rect x="7" y="2" width="10" height="20" rx="2" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour · Compressão</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">CALÇA / BODY / TOP
+                        </h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230 <span
+                                class="text-base text-muted font-body font-normal">a</span> 245</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Nota infantil -->
+            <div class="mt-6 flex items-start gap-3 px-5 py-4 rounded-xl border border-gold/20 bg-gold/[.04]">
+                <span class="text-gold text-lg mt-0.5">👧</span>
+                <p class="text-zinc-400 text-[13px]">
+                    <span class="text-gold font-semibold">Para crianças:</span> Disponível
+                    <strong class="text-white">Short New</strong> e <strong class="text-white">Rash</strong> (Manga
+                    Curta e Manga Longa).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BRAUS ═══════════════ -->
+    <section class="py-16 sm:py-24 px-5 bg-surface border-b border-edge">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section header -->
+            <div class="rv mb-12">
+                <span class="g-line mb-5"></span>
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <div>
+                        <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Linha Kimonos</p>
+                        <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-none">
+                            BRAUS</h2>
+                    </div>
+                    <p class="text-zinc-400 text-[13.5px] max-w-md leading-relaxed">
+                        <strong class="text-white">Importados da Austrália</strong>, referência mundial em
+                        <strong class="text-white">conforto e durabilidade</strong>. O kimono preferido por atletas de
+                        elite.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kimonos grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-6">
+
+                <!-- Light -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">LIGHT</h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 690</p>
+                    </div>
+                </div>
+
+                <!-- Eagle -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <p class="text-[10px] text-muted uppercase tracking-widest">Braus · Kimono</p>
+                            <span class="badge bg-gold/15 text-gold border border-gold/30"
+                                style="font-size:8px;padding:1px 6px;">TOP</span>
+                        </div>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">EAGLE</h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 830</p>
+                    </div>
+                </div>
+
+                <!-- Infantil -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">INFANTIL</h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 590</p>
+                    </div>
+                </div>
+
+                <!-- Brim Baby -->
+                <div class="prod-card rv">
+                    <div class="prod-img">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
+                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">BRIM BABY</h3>
+                        <p class="font-display text-2xl text-gold tracking-wide">R$ 440</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Faixa personalizada -->
+            <div class="flex items-center justify-between gap-4 px-6 py-4 rounded-2xl border border-edge bg-raised">
+                <div class="flex items-center gap-3">
+                    <span class="text-gold text-xl">🥋</span>
+                    <div>
+                        <p class="text-[10px] tracking-[.2em] text-gold uppercase font-semibold">Acessório</p>
+                        <p class="text-white text-[14px] font-semibold">Faixa Personalizada</p>
+                    </div>
+                </div>
+                <span class="font-display text-2xl text-white tracking-wide whitespace-nowrap">R$ 120</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════ CTA / FOOTER DA LOJA ═══════════════ -->
+    <section class="py-16 sm:py-20 px-5 text-center">
+        <div class="max-w-xl mx-auto">
+            <span class="g-line mx-auto mb-6"></span>
+            <h2 class="font-display text-[clamp(2rem,5vw,3.2rem)] text-white tracking-wide mb-3">CONSULTE<br /><span
+                    class="text-gold">DISPONIBILIDADE</span></h2>
+            <p class="text-zinc-400 text-[14px] mb-3 leading-relaxed">
+                Entre em contato para verificar estoque, tamanhos e modelos disponíveis.
+            </p>
+            <div class="inline-flex items-center gap-2 bg-raised border border-gold/25 rounded-xl px-5 py-3 mb-8">
+                <span class="text-gold">💳</span>
+                <p class="text-[13px] text-zinc-300">
+                    <strong class="text-white">10% de desconto à vista.</strong>
+                    Parcelamento em até <strong class="text-white">4× no cartão</strong> (consulte condições).
+                </p>
+            </div>
+            <br />
+            <a href="https://wa.me/556596961487?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20uniformes%20e%20equipamentos%20da%20Escola%20Vinicius%20Garcia."
+                target="_blank" rel="noopener"
+                class="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold text-[13px] tracking-[.14em] rounded-xl hover:bg-[#20b858] transition-all uppercase shadow-lg shadow-[#25D366]/25">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                    <path
+                        d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.334.626 4.619 1.815 6.624L2.667 29.333l6.896-1.773A13.3 13.3 0 0016 29.333c7.363 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667z"
+                        fill="white" />
+                    <path
+                        d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
+                        fill="#25D366" />
+                </svg>
+                Consultar Disponibilidade no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WA -->
+    <a id="wa"
+        href="https://wa.me/556596961487?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20uniformes%20e%20equipamentos%20da%20Escola%20Vinicius%20Garcia."
+        target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span><svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+                <path
+                    d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.334.626 4.619 1.815 6.624L2.667 29.333l6.896-1.773A13.3 13.3 0 0016 29.333c7.363 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667z"
+                    fill="white" />
+                <path
+                    d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
+                    fill="#25D366" />
+            </svg></span>
+    </a>
+
+    <script>
+        const nb = document.getElementById('nb');
+        window.addEventListener('scroll', () => nb.classList.toggle('sc', scrollY > 40), { passive: true });
+        document.querySelectorAll('.rv').forEach(el => new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('on') }, { threshold: .1 }).observe(el));
+    </script>
+</body>
+
+</html>
