@@ -504,181 +504,178 @@
                 </p>
             </div>
 
-            <!-- 3 cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-7 items-stretch pt-6 md:pt-0">
+            <!-- Comparison tables: 2 cards side by side (stack on mobile) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
 
                 <!-- ── Card 1: Baby & Kids 1 ── -->
-                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl p-8">
-                    <div class="mb-2">
-                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-2">Plano Anual</p>
-                        <h3 class="font-display text-3xl text-white tracking-wide leading-tight mb-1">BABY & KIDS 1</h3>
-                        <p class="text-muted text-[13px]">Atenção exclusiva e desenvolvimento motor.</p>
+                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl overflow-hidden">
+                    <!-- Card header -->
+                    <div class="px-6 pt-6 pb-4 border-b border-edge">
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-1">Turma</p>
+                        <h3 class="font-display text-2xl text-white tracking-wide">BABY &amp; KIDS 1</h3>
+                        <p class="text-muted text-[12.5px] mt-1">3 a 8 anos · Atenção exclusiva e desenvolvimento motor.
+                        </p>
                     </div>
-
-                    <div class="my-6">
-                        <p class="text-[11px] text-muted uppercase tracking-widest mb-1">A partir de</p>
-                        <span class="font-display text-5xl text-white tracking-wide">R$ 310</span>
-                        <span class="text-muted text-sm">/mês</span>
-                    </div>
-
-                    <!-- Freq table -->
-                    <div class="flex-1 mb-8">
-                        <p class="text-[10px] uppercase tracking-widest text-muted mb-3">Frequências</p>
-                        <div class="space-y-0">
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">2× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 310</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">3× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 360</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">4× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 410</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">5× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 460</span>
-                            </div>
+                    <!-- Column headers -->
+                    <div
+                        class="grid grid-cols-3 px-6 py-3 bg-raised border-b border-edge text-[10px] uppercase tracking-[.18em]">
+                        <span class="text-muted">Frequência</span>
+                        <span class="text-zinc-400 text-center">Avulso Mensal</span>
+                        <div class="flex flex-col items-center gap-0.5">
+                            <span class="text-gold text-center">Recorrente</span>
+                            <span
+                                class="bg-gold/10 text-gold text-[8px] px-2 py-0.5 rounded-full border border-gold/30 tracking-widest whitespace-nowrap">⭐
+                                Melhor Custo</span>
                         </div>
                     </div>
-
-                    <a href="#contato"
-                        class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase"
-                        onclick="setMsg('Aula Experimental Baby')">
-                        Agendar Experimental Baby
-                    </a>
-                </div>
-
-                <!-- ── Card 2: Regular ── -->
-                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl p-8">
-                    <div class="mb-2">
-                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-2">Plano Anual</p>
-                        <h3 class="font-display text-3xl text-white tracking-wide leading-tight mb-1">JIU-JITSU REGULAR
-                        </h3>
-                        <p class="text-muted text-[13px]">Kids 2 ao Adulto — metodologia completa.</p>
-                    </div>
-
-                    <div class="my-6">
-                        <p class="text-[11px] text-muted uppercase tracking-widest mb-1">A partir de</p>
-                        <span class="font-display text-5xl text-white tracking-wide">R$ 270</span>
-                        <span class="text-muted text-sm">/mês</span>
-                    </div>
-
-                    <div class="flex-1 mb-8">
-                        <p class="text-[10px] uppercase tracking-widest text-muted mb-3">Frequências</p>
-                        <div class="space-y-0">
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">2× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 270</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">3× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 310</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">4× por semana</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 350</span>
-                            </div>
-                            <div class="freq-row">
-                                <span class="text-[13px] text-zinc-300">Plano Full</span>
-                                <span class="text-[13px] font-semibold text-white">R$ 410</span>
-                            </div>
+                    <!-- Rows -->
+                    <div class="flex-1 divide-y divide-edge">
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center">
+                            <span class="text-[13px] text-zinc-300">2× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 370</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 310</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center bg-white/[.02]">
+                            <span class="text-[13px] text-zinc-300">3× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 420</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 360</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center">
+                            <span class="text-[13px] text-zinc-300">4× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 470</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 410</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center bg-white/[.02]">
+                            <span class="text-[13px] text-zinc-300">5× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 520</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 460</span>
                         </div>
                     </div>
-
-                    <a href="#contato"
-                        class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase"
-                        onclick="setMsg('Plano Jiu-Jitsu Regular')">
-                        Começar Agora
-                    </a>
+                    <div class="px-6 pb-6 pt-4">
+                        <a href="#contato" onclick="setMsg('Plano Baby & Kids 1')"
+                            class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase">
+                            Agendar Aula Experimental
+                        </a>
+                    </div>
                 </div>
 
-                <!-- ── Card 3: Black Belt Signature (VIP) ── -->
-                <div
-                    class="pr-card rv flex flex-col relative bg-gold rounded-2xl p-8 shadow-2xl shadow-gold/25 ring-1 ring-gold/70 mt-2 md:mt-0">
-
-                    <!-- Badge -->
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                        <span
-                            class="bg-black text-gold text-[10px] font-bold tracking-[.22em] uppercase px-5 py-1.5 rounded-full border border-gold shadow-lg">
-                            Experiência Completa
-                        </span>
+                <!-- ── Card 2: Kids 2 ao Adulto ── -->
+                <div class="pr-card rv flex flex-col bg-bg border border-edge rounded-2xl overflow-hidden">
+                    <!-- Card header -->
+                    <div class="px-6 pt-6 pb-4 border-b border-edge">
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-muted uppercase mb-1">Turma</p>
+                        <h3 class="font-display text-2xl text-white tracking-wide">KIDS 2 AO ADULTO</h3>
+                        <p class="text-muted text-[12.5px] mt-1">9 a 15+ anos · Metodologia técnica completa.</p>
                     </div>
+                    <!-- Column headers -->
+                    <div
+                        class="grid grid-cols-3 px-6 py-3 bg-raised border-b border-edge text-[10px] uppercase tracking-[.18em]">
+                        <span class="text-muted">Frequência</span>
+                        <span class="text-zinc-400 text-center">Avulso Mensal</span>
+                        <div class="flex flex-col items-center gap-0.5">
+                            <span class="text-gold text-center">Recorrente</span>
+                            <span
+                                class="bg-gold/10 text-gold text-[8px] px-2 py-0.5 rounded-full border border-gold/30 tracking-widest whitespace-nowrap">⭐
+                                Melhor Custo</span>
+                        </div>
+                    </div>
+                    <!-- Rows -->
+                    <div class="flex-1 divide-y divide-edge">
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center">
+                            <span class="text-[13px] text-zinc-300">2× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 330</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 270</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center bg-white/[.02]">
+                            <span class="text-[13px] text-zinc-300">3× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 370</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 310</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center">
+                            <span class="text-[13px] text-zinc-300">4× semana</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 410</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 350</span>
+                        </div>
+                        <div class="grid grid-cols-3 px-6 py-3.5 items-center bg-white/[.02]">
+                            <span class="text-[13px] text-zinc-300">Plano Full</span>
+                            <span class="text-[13px] text-zinc-400 text-center">R$ 470</span>
+                            <span class="text-[14px] font-bold text-white text-center">R$ 410</span>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-4">
+                        <a href="#contato" onclick="setMsg('Plano Kids 2 ao Adulto')"
+                            class="block text-center py-3.5 border border-edge text-white text-[13px] font-semibold rounded-xl hover:border-zinc-500 transition-all tracking-wide uppercase">
+                            Agendar Aula Experimental
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="mt-3 mb-2">
-                        <p class="text-[10px] font-semibold tracking-[.28em] text-black/55 uppercase mb-2">Plano Premium
+            <!-- ── Black Belt Signature (featured full-width) ── -->
+            <div
+                class="rv relative bg-gold rounded-2xl p-8 shadow-2xl shadow-gold/25 ring-1 ring-gold/70 max-w-2xl mx-auto">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                    <span
+                        class="bg-black text-gold text-[10px] font-bold tracking-[.22em] uppercase px-5 py-1.5 rounded-full border border-gold shadow-lg">
+                        Experiência Completa
+                    </span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-3">
+                    <div>
+                        <p class="text-[10px] font-semibold tracking-[.28em] text-black/55 uppercase mb-1">Plano Premium
                         </p>
                         <h3 class="font-display text-3xl text-black tracking-wide leading-tight mb-1">BLACK
                             BELT<br />SIGNATURE</h3>
                         <p class="text-black/65 text-[13px]">Acesso total. Experiência de elite.</p>
                     </div>
-
-                    <div class="my-6">
+                    <div class="text-center sm:text-right">
                         <span class="font-display text-5xl text-black tracking-wide">R$ 850</span>
                         <span class="text-black/55 text-sm">/mês</span>
                     </div>
-
-                    <!-- Benefits -->
-                    <ul class="flex-1 space-y-3 mb-3">
-                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
-                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
-                            </svg>
-                            Aulas todos os dias (Plano Full)
-                        </li>
-                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
-                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
-                            </svg>
-                            Academia de musculação inclusa
-                        </li>
-                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
-                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
-                            </svg>
-                            1 Sessão de recovery mensal com Luana
-                        </li>
-                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
-                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
-                            </svg>
-                            1 Aula particular mensal com Prof. Vinicius
-                        </li>
-                        <li class="flex items-start gap-2.5 text-[13px] text-black font-medium">
-                            <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"
-                                stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
-                            </svg>
-                            15% de desconto em produtos
-                        </li>
-                    </ul>
-
-                    <!-- Savings -->
-                    <div class="mb-6 bg-black/10 rounded-xl px-4 py-3 text-center">
-                        <p class="text-[12px] font-bold text-black tracking-wide uppercase">
-                            💰 Economia de <strong>R$ 140</strong> todo mês
-                        </p>
-                    </div>
-
-                    <a href="#contato"
-                        class="block text-center py-4 bg-black text-gold text-[13px] font-bold rounded-xl hover:bg-zinc-900 transition-all tracking-[.16em] uppercase shadow-md"
-                        onclick="setMsg('Plano Black Belt Signature')">
-                        Quero ser Signature
-                    </a>
                 </div>
-
+                <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 mt-6 mb-6">
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>Aulas todos os dias (Plano Full)</li>
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>Musculação ilimitada</li>
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>Yoga &amp; Mobilidade</li>
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>1 Aula Particular/mês</li>
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>Recovery c/ Fisioterapeuta Luana</li>
+                    <li class="flex items-start gap-2.5 text-[13px] text-black font-medium"><svg
+                            class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l4 4L15 7" />
+                        </svg>Acesso exclusivo VIP</li>
+                </ul>
+                <a href="#contato" onclick="setMsg('Plano Black Belt Signature')"
+                    class="block text-center py-4 bg-black text-gold text-[13px] font-bold rounded-xl hover:bg-zinc-900 transition-all tracking-[.16em] uppercase shadow-md">
+                    Quero ser Signature
+                </a>
             </div>
 
-            <!-- Pricing footnote -->
-            <p class="text-center text-muted text-[12.5px] mt-10 max-w-xl mx-auto leading-relaxed">
-                Consulte valores para planos mensais avulsos (sem vínculo) e a disponibilidade dos nossos uniformes.
+            <!-- Uniform notice + footnote -->
+            <p class="text-center text-muted text-[12.5px] mt-8 max-w-xl mx-auto leading-relaxed">
+                💡 Consulte a disponibilidade dos nossos uniformes · Valores do plano Recorrente exigem contrato anual.
             </p>
+
         </div>
     </section>
 
