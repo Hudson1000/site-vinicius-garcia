@@ -167,6 +167,86 @@
         .svc:hover {
             border-color: #C9A84C;
         }
+
+        /* ── Expandable testimonial cards ── */
+        .dep-card .dep-text {
+            max-height: 5.6em;
+            overflow: hidden;
+            transition: max-height .5s cubic-bezier(.4,0,.2,1);
+            position: relative;
+        }
+
+        .dep-card .dep-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, #0a0a0a);
+            pointer-events: none;
+            transition: opacity .3s;
+            z-index: 15;
+        }
+
+        .dep-featured .dep-fade {
+            background: linear-gradient(to bottom, transparent, #0d0d0b);
+        }
+
+        .dep-card .dep-toggle {
+            display: none;
+            text-align: center;
+            color: #C9A84C;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 0 0;
+            position: relative;
+            z-index: 20;
+            transition: color .2s;
+        }
+
+        .dep-card .dep-toggle:hover {
+            color: #DDB96A;
+        }
+
+        /* Desktop: expand on hover */
+        @media (min-width: 768px) {
+            .dep-card:hover .dep-text {
+                max-height: 600px;
+            }
+            .dep-card:hover .dep-fade {
+                opacity: 0;
+            }
+            .dep-card .dep-toggle {
+                display: none !important;
+            }
+        }
+
+        /* Mobile: show toggle, expand on click */
+        @media (max-width: 767px) {
+            .dep-card .dep-toggle {
+                display: block;
+                width: 100%;
+            }
+            .dep-card.expanded .dep-text {
+                max-height: 1200px;
+            }
+            .dep-card.expanded .dep-fade {
+                opacity: 0;
+            }
+            .dep-card.expanded .dep-toggle {
+                display: none;
+            }
+        }
+
+        /* Cards with short text: no fade/toggle needed */
+        .dep-card.dep-short .dep-fade { display: none; }
+        .dep-card.dep-short .dep-toggle { display: none !important; }
+        .dep-card.dep-short .dep-text { max-height: none; }
+
     </style>
 </head>
 
@@ -977,117 +1057,338 @@
     </section>
 
 
-    <!-- ════════════════════════════════════════
+<!-- ════════════════════════════════════════
      DEPOIMENTOS
 ════════════════════════════════════════ -->
-    <section id="depoimentos" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 bg-surface border-t border-edge">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12 rv">
-                <span class="g-line mx-auto mb-5"></span>
-                <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Depoimentos</p>
-                <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-tight">
-                    O QUE DIZEM NOSSOS<br /><span class="text-gold">ALUNOS E PAIS</span>
-                </h2>
-            </div>
+<section id="depoimentos" class="py-16 sm:py-24 lg:py-28 px-5 sm:px-6 border-t border-edge">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 rv">
+            <span class="g-line mx-auto mb-5"></span>
+            <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Depoimentos</p>
+            <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-tight">
+                O QUE DIZEM NOSSOS<br /><span class="text-gold">ALUNOS E PAIS</span>
+            </h2>
+        </div>
 
-            <!-- ★ DEPOIMENTO DESTAQUE — Thais Martins ★ -->
-            <div class="rv mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- ★ Card 1 — Thais Martins (DESTAQUE: col-span full) ★ -->
+            <div class="dep-card dep-featured rv border-2 border-gold/40 hover:border-gold rounded-2xl p-7 sm:p-8 bg-gradient-to-br from-gold/[.06] via-bg to-bg transition-all relative overflow-hidden md:col-span-2 lg:col-span-3 cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <!-- Glow -->
                 <div
-                    class="relative border-2 border-gold/40 hover:border-gold rounded-2xl p-8 sm:p-10 bg-gradient-to-br from-gold/[.06] via-bg to-bg transition-colors overflow-hidden">
-
-                    <!-- Glow sutil no canto -->
-                    <div
-                        class="absolute -top-20 -right-20 w-56 h-56 bg-gold/[.07] rounded-full blur-3xl pointer-events-none">
-                    </div>
-
-                    <!-- Aspa dourada grande -->
+                    class="absolute -top-20 -right-20 w-56 h-56 bg-gold/[.07] rounded-full blur-3xl pointer-events-none">
+                </div>
+                <!-- Aspa dourada grande -->
+                <span
+                    class="font-display text-[6rem] sm:text-[8rem] text-gold/20 absolute -top-1 left-4 sm:left-7 leading-none select-none pointer-events-none"
+                    style="line-height:0.8;">&ldquo;</span>
+                <!-- Badge -->
+                <div class="flex items-center gap-2 mb-4 relative z-10">
                     <span
-                        class="font-display text-[7rem] sm:text-[9rem] text-gold/25 absolute -top-2 left-5 sm:left-8 leading-none select-none pointer-events-none"
-                        style="line-height:0.8;">&ldquo;</span>
-
-                    <!-- Badge destaque -->
-                    <div class="flex items-center gap-2 mb-5 relative z-10">
-                        <span
-                            class="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/30 text-gold text-[10px] font-bold tracking-[.22em] uppercase px-4 py-1.5 rounded-full">
-                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
-                            </svg>
-                            Depoimento Verificado
-                        </span>
-                    </div>
-
-                    <!-- Texto do depoimento -->
-                    <div class="relative z-10 max-w-4xl">
-                        <p class="text-zinc-200 text-[14.5px] sm:text-[15.5px] leading-[1.85] mb-3">
-                            Nossa experiência com a escola Vinícius Garcia de Jiu-Jitsu é simplesmente maravilhosa! 🙏🥋
-                        </p>
-                        <p class="text-zinc-300 text-[14px] sm:text-[15px] leading-[1.85] mb-3">
-                            O Lucas começou com apenas 3 anos e hoje, com 6, vemos o quanto o jiu-jitsu contribuiu para
-                            o desenvolvimento dele. Além da parte técnica, a escola ensina valores essenciais como
-                            disciplina, respeito, autocontrole e confiança.
-                        </p>
-                        <p class="text-zinc-300 text-[14px] sm:text-[15px] leading-[1.85] mb-3">
-                            Os senseis Vinícius, Luana e toda a equipe são extremamente atenciosos, pacientes e
-                            comprometidos com cada aluno. O ambiente é acolhedor, seguro e muito familiar, o que deixa
-                            as crianças motivadas e felizes em cada treino.
-                        </p>
-                        <p class="text-zinc-300 text-[14px] sm:text-[15px] leading-[1.85] mb-6">
-                            Somos muito gratos por fazer parte dessa escola que vai muito além do esporte, formando
-                            crianças mais fortes emocionalmente e preparadas para a vida. Super recomendamos!
-                        </p>
-                    </div>
-
-                    <!-- 5 estrelas douradas -->
-                    <div class="flex gap-1 mb-6 relative z-10">
-                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        class="inline-flex items-center gap-1.5 bg-gold/10 border border-gold/30 text-gold text-[10px] font-bold tracking-[.22em] uppercase px-4 py-1.5 rounded-full">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
                         </svg>
-                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
-                        </svg>
-                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
-                        </svg>
-                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
-                        </svg>
-                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
-                        </svg>
-                    </div>
-
-                    <!-- Info do autor -->
-                    <div class="flex items-center gap-4 relative z-10">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gold/15 border-2 border-gold/40 flex items-center justify-center text-gold text-[13px] font-bold flex-shrink-0">
-                            TM</div>
-                        <div>
-                            <p class="text-white text-[15px] font-semibold">Thais Martins</p>
-                            <div class="flex items-center gap-2 mt-0.5">
-                                <span class="text-gold text-[11px] font-semibold">Local Guide</span>
-                                <span class="text-edge">·</span>
-                                <span class="text-muted text-[11px]">Mãe de Aluno · Jiu-Jitsu Infantil</span>
-                            </div>
-                        </div>
+                        Depoimento Verificado
+                    </span>
+                </div>
+                <!-- Texto -->
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-200 text-[14px] sm:text-[15px] leading-[1.85]">Nossa experiência com a escola
+                        Vinícius Garcia de Jiu-Jitsu é simplesmente maravilhosa! 🙏🥋 O Lucas começou com apenas 3 anos
+                        e hoje, com 6, vemos o quanto o jiu-jitsu contribuiu para o desenvolvimento dele. Além da parte
+                        técnica, a escola ensina valores essenciais como disciplina, respeito, autocontrole e confiança.
+                        Os senseis Vinícius, Luana e toda a equipe são extremamente atenciosos, pacientes e
+                        comprometidos com cada aluno. O ambiente é acolhedor, seguro e muito familiar, o que deixa as
+                        crianças motivadas e felizes em cada treino. Somos muito gratos por fazer parte dessa escola que
+                        vai muito além do esporte, formando crianças mais fortes emocionalmente e preparadas para a
+                        vida. Super recomendamos! ⭐⭐⭐⭐⭐</p>
+                </div>
+                <!-- Fade overlay -->
+                <div class="dep-fade"></div>
+                <!-- Ler mais (mobile) -->
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <!-- Estrelas -->
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4.5 h-4.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4.5 h-4.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4.5 h-4.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4.5 h-4.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4.5 h-4.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <!-- Autor -->
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-11 h-11 rounded-full bg-gold/15 border-2 border-gold/40 flex items-center justify-center text-gold text-[12px] font-bold flex-shrink-0">
+                        TM</div>
+                    <div>
+                        <p class="text-white text-[14px] font-semibold">Thais Martins</p>
+                        <p class="text-gold text-[11px] font-medium">Local Guide · <span class="text-muted">Mãe de
+                                Aluno</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Grade para futuros depoimentos -->
-            <!--
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                Novos depoimentos verificados serão adicionados aqui
+            <!-- Card 2 — Ubiraci Machado -->
+            <div class="dep-card rv border border-edge hover:border-gold/40 rounded-2xl p-6 bg-bg transition-all relative cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <span
+                    class="font-display text-5xl text-gold/20 absolute top-4 right-5 leading-none select-none pointer-events-none">&ldquo;</span>
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-300 text-[13.5px] leading-relaxed">A academia é extremamente limpa e organizada.
+                        O ambiente é bem cuidado, estruturado e pensado para proporcionar o melhor treino possível. É,
+                        na minha opinião, a melhor estrutura do estado! Mas o que realmente diferencia o lugar são as
+                        pessoas. Os senseis são competentes, técnicos, atentos aos detalhes e, acima de tudo, honrados.
+                        Ensinam com firmeza, mas também com respeito. Cobram disciplina, mas dão exemplo diariamente. É
+                        o tipo de liderança que forma não apenas atletas, mas homens melhores. Sou grato por fazer parte
+                        dessa equipe. Aqui não se aprende apenas jiu-jitsu — aprende-se postura, constância e caráter.
+                    </p>
+                </div>
+                <div class="dep-fade"></div>
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-10 h-10 rounded-full bg-raised border border-edge flex items-center justify-center text-muted text-[11px] font-semibold flex-shrink-0">
+                        UM</div>
+                    <div>
+                        <p class="text-white text-[13px] font-semibold">Ubiraci Machado</p>
+                        <p class="text-muted text-[11px]">Aluno · Jiu-Jitsu Adulto</p>
+                    </div>
+                </div>
             </div>
-            -->
+
+            <!-- Card 3 — Cris Righetto -->
+            <div class="dep-card rv border border-edge hover:border-gold/40 rounded-2xl p-6 bg-bg transition-all relative cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <span
+                    class="font-display text-5xl text-gold/20 absolute top-4 right-5 leading-none select-none pointer-events-none">&ldquo;</span>
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-300 text-[13.5px] leading-relaxed">Uma excelente escola, com profissionais
+                        sensacionais!! Coloquei meus filhos na escola do sensei Vinicius alguns anos atrás, e as
+                        mudanças foram nítidas e continuam sendo a cada treino!! Vimos em nossos filhos o crescimento
+                        emocional, a forma de lidarem com seus problemas, mais seguros e maduros!! Hoje estamos todos,
+                        meus filhos, eu e meu esposo!! Para mim o jiu-jitsu foi e está sendo o maior dos desafios, me
+                        transformando dentro e fora do tatame!! Como gostaria de ter tido a oportunidade de ter iniciado
+                        criança!! Super indico e digo para todos que tiverem oportunidade que venham fazer parte dessa
+                        arte que te prepara para a vida!!</p>
+                </div>
+                <div class="dep-fade"></div>
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-10 h-10 rounded-full bg-raised border border-edge flex items-center justify-center text-muted text-[11px] font-semibold flex-shrink-0">
+                        CR</div>
+                    <div>
+                        <p class="text-white text-[13px] font-semibold">Cris Righetto</p>
+                        <p class="text-muted text-[11px]">Família · Jiu-Jitsu Adulto e Infantil</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 — Arthur Simões -->
+            <div class="dep-card rv border border-edge hover:border-gold/40 rounded-2xl p-6 bg-bg transition-all relative cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <span
+                    class="font-display text-5xl text-gold/20 absolute top-4 right-5 leading-none select-none pointer-events-none">&ldquo;</span>
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-300 text-[13.5px] leading-relaxed">Melhor academia da região, ambiente
+                        extremamente respeitoso, a metodologia ensinada para iniciantes é excelente. Me senti em casa
+                        desde o primeiro treino, recomendo muito!</p>
+                </div>
+                <div class="dep-fade"></div>
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-10 h-10 rounded-full bg-raised border border-edge flex items-center justify-center text-muted text-[11px] font-semibold flex-shrink-0">
+                        AS</div>
+                    <div>
+                        <p class="text-white text-[13px] font-semibold">Arthur Simões</p>
+                        <p class="text-muted text-[11px]">Aluno · Jiu-Jitsu Adulto</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 — Edgar Wolfart -->
+            <div class="dep-card rv border border-edge hover:border-gold/40 rounded-2xl p-6 bg-bg transition-all relative cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <span
+                    class="font-display text-5xl text-gold/20 absolute top-4 right-5 leading-none select-none pointer-events-none">&ldquo;</span>
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-300 text-[13.5px] leading-relaxed">Minha filha está há 1 ano fazendo Jiu-jitsu,
+                        e é nítido o desenvolvimento dela. Os professores são muito atenciosos e a escola tem uma
+                        excelente infraestrutura, visando o melhor para os alunos!</p>
+                </div>
+                <div class="dep-fade"></div>
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-10 h-10 rounded-full bg-raised border border-edge flex items-center justify-center text-muted text-[11px] font-semibold flex-shrink-0">
+                        EW</div>
+                    <div>
+                        <p class="text-white text-[13px] font-semibold">Edgar Wolfart</p>
+                        <p class="text-muted text-[11px]">Pai de Aluna · Jiu-Jitsu Infantil</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 — NETO -->
+            <div class="dep-card rv border border-edge hover:border-gold/40 rounded-2xl p-6 bg-bg transition-all relative cursor-pointer"
+                onclick="this.classList.toggle('expanded')">
+                <span
+                    class="font-display text-5xl text-gold/20 absolute top-4 right-5 leading-none select-none pointer-events-none">&ldquo;</span>
+                <div class="dep-text relative z-10">
+                    <p class="text-zinc-300 text-[13.5px] leading-relaxed">Tenho profunda admiração pelo trabalho da
+                        Escola de Jiu Jitsu Vinicius Garcia. O Sensei Vinicius e a Sensei Luana são exemplos de
+                        dedicação, caráter e excelência, formando não apenas atletas, mas pessoas mais disciplinadas e
+                        fortes para a vida. É um privilégio fazer parte de um ambiente conduzido por profissionais tão
+                        íntegros e inspiradores. E, mesmo possuindo todas essas qualidades, permanecem constantemente
+                        empenhados na busca por melhorias e evolução contínua, tanto no aperfeiçoamento de seu papel
+                        como professores quanto no constante aprimoramento do espaço e do ambiente que oferecem aos seus
+                        alunos.</p>
+                </div>
+                <div class="dep-fade"></div>
+                <button class="dep-toggle" aria-label="Ler mais">Ler mais ↓</button>
+                <div class="flex gap-1 mt-5 mb-4 relative z-10">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 1l2.39 4.85L18 6.88l-4 3.9.94 5.5L10 13.77l-4.94 2.51.94-5.5L2 6.88l5.61-.03L10 1z" />
+                    </svg>
+                </div>
+                <div class="flex items-center gap-3 relative z-10">
+                    <div
+                        class="w-10 h-10 rounded-full bg-raised border border-edge flex items-center justify-center text-muted text-[11px] font-semibold flex-shrink-0">
+                        N</div>
+                    <div>
+                        <p class="text-white text-[13px] font-semibold">NETO</p>
+                        <p class="text-muted text-[11px]">Aluno · Jiu-Jitsu</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
 
     <!-- ════════════════════════════════════════
@@ -1175,6 +1476,14 @@
             );
             window.open(`https://wa.me/556599876024?text=${text}`, '_blank');
         }
+
+        // ── Auto-detect short testimonial cards (no expand needed)
+        document.querySelectorAll('.dep-card').forEach(card => {
+            const txt = card.querySelector('.dep-text');
+            if (txt && txt.scrollHeight <= txt.offsetHeight + 2) {
+                card.classList.add('dep-short');
+            }
+        });
     </script>
 
 
