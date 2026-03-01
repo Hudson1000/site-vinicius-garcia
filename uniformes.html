@@ -1,23 +1,43 @@
 ﻿<!DOCTYPE html>
-<!-- sync: 2026-03-01T17:50 -->
+<!-- sync: 2026-03-01T18:31 -->
 <html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uniformes & Equipamentos | Vinicius Garcia Escola de Jiu-Jitsu</title>
+    <title>Uniformes &amp; Equipamentos | Vinicius Garcia Escola de Jiu-Jitsu</title>
     <meta name="description"
-        content="Uniformes e equipamentos oficiais da Escola Vinicius Garcia. Linha Bravour (fio importado EUA, UV50+) e Kimonos Braus importados da Austrália. Tangará da Serra/MT." />
+        content="Loja oficial da Escola Vinicius Garcia. Kimonos BRAUS importados, Rashguards, Bermudas e linha Lifestyle. Produtos de alta performance para o tatame." />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-    <script>tailwind.config = { theme: { extend: { colors: { 'bg': '#0a0a0a', 'surface': '#111', 'raised': '#181818', 'edge': '#252525', 'gold': '#C9A84C', 'gold-lt': '#DDB96A', 'muted': '#6b6b6b' }, fontFamily: { display: ['"Bebas Neue"'], body: ['"Inter"'] } } } }</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg': '#0a0a0a', 'surface': '#111111', 'raised': '#181818',
+                        'edge': '#252525', 'gold': '#C9A84C', 'gold-lt': '#DDB96A', 'muted': '#6b6b6b'
+                    },
+                    fontFamily: { display: ['"Bebas Neue"', 'sans-serif'], body: ['"Inter"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
     <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
         body {
             background: #0a0a0a;
             font-family: 'Inter', sans-serif;
             color: #e8e8e8;
-            -webkit-font-smoothing: antialiased
+            -webkit-font-smoothing: antialiased;
         }
 
         .g-line {
@@ -25,35 +45,235 @@
             width: 44px;
             height: 3px;
             background: #C9A84C;
-            border-radius: 2px
-        }
-
-        .rv {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .6s ease, transform .6s ease
-        }
-
-        .rv.on {
-            opacity: 1;
-            transform: translateY(0)
+            border-radius: 2px;
         }
 
         #nb {
-            transition: background .35s, border-color .35s
+            transition: background .35s, border-color .35s;
         }
 
         #nb.sc {
             background: rgba(10, 10, 10, .94);
             backdrop-filter: blur(14px);
-            border-bottom-color: #252525
+            border-bottom-color: #252525;
         }
 
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            transition: all .2s;
+            border: 1px solid #252525;
+            color: #6b6b6b;
+            background: #111;
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            border-color: #C9A84C;
+            color: #C9A84C;
+        }
+
+        .filter-btn.active {
+            background: #C9A84C;
+            border-color: #C9A84C;
+            color: #000;
+        }
+
+        .gender-btn {
+            transition: all .2s;
+            border: 1px solid #252525;
+            color: #6b6b6b;
+            background: #111;
+            border-radius: 999px;
+            padding: 4px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .gender-btn:hover {
+            border-color: #ffffff55;
+            color: #fff;
+        }
+
+        .gender-btn.active {
+            background: #252525;
+            border-color: #555;
+            color: #fff;
+        }
+
+        /* Product card */
+        .prod-card {
+            background: #111111;
+            border: 1px solid #252525;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color .3s, transform .3s, box-shadow .3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prod-card:hover {
+            border-color: #C9A84C;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(201, 168, 76, .12);
+        }
+
+        .prod-img {
+            aspect-ratio: 3/4;
+            background: #181818;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #252525;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prod-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .prod-card:hover .prod-img img {
+            transform: scale(1.04);
+        }
+
+        .prod-img .img-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #3a3a3a;
+            width: 100%;
+            height: 100%;
+        }
+
+        .prod-img .img-placeholder svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .prod-img .img-placeholder span {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #2e2e2e;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .badge-gold {
+            background: rgba(201, 168, 76, .15);
+            color: #C9A84C;
+            border: 1px solid rgba(201, 168, 76, .3);
+        }
+
+        .badge-white {
+            background: rgba(255, 255, 255, .08);
+            color: #ddd;
+            border: 1px solid rgba(255, 255, 255, .15);
+        }
+
+        .badge-red {
+            background: rgba(220, 60, 60, .15);
+            color: #f87171;
+            border: 1px solid rgba(220, 60, 60, .3);
+        }
+
+        .badge-blue {
+            background: rgba(96, 165, 250, .1);
+            color: #93c5fd;
+            border: 1px solid rgba(96, 165, 250, .2);
+        }
+
+        /* Alert banner */
+        .alert-banner {
+            background: rgba(220, 60, 60, .08);
+            border: 1px solid rgba(220, 60, 60, .25);
+            border-radius: 10px;
+            padding: 8px 12px;
+            margin: 0 16px 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+        }
+
+        .alert-banner svg {
+            flex-shrink: 0;
+            color: #f87171;
+            margin-top: 1px;
+        }
+
+        .alert-banner p {
+            font-size: 11px;
+            color: #fca5a5;
+            line-height: 1.5;
+        }
+
+        .alert-banner strong {
+            color: #f87171;
+        }
+
+        /* Btn */
+        .btn-detail {
+            display: block;
+            text-align: center;
+            margin: 0 16px 16px;
+            padding: 10px 0;
+            border: 1px solid #252525;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #C9A84C;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-detail:hover {
+            background: #C9A84C;
+            color: #000;
+            border-color: #C9A84C;
+        }
+
+        /* WA float */
         #wa {
             position: fixed;
             bottom: 24px;
             right: 20px;
-            z-index: 9999
+            z-index: 9999;
         }
 
         #wa span {
@@ -65,7 +285,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
-            transition: transform .2s
+            transition: transform .2s;
         }
 
         #wa span::before {
@@ -75,67 +295,36 @@
             height: 52px;
             border-radius: 50%;
             background: rgba(37, 211, 102, .3);
-            animation: wap 2.2s ease-out infinite
+            animation: wap 2.2s ease-out infinite;
         }
 
         @keyframes wap {
             0% {
                 transform: scale(1);
-                opacity: .7
+                opacity: .7;
             }
 
-            70% {
-                transform: scale(1.6);
-                opacity: 0
-            }
-
+            70%,
             100% {
                 transform: scale(1.6);
-                opacity: 0
+                opacity: 0;
             }
         }
 
-        .prod-card {
-            background: #111;
-            border: 1px solid #252525;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: border-color .3s, transform .3s
+        .filter-scroll {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .prod-card:hover {
-            border-color: #C9A84C;
-            transform: translateY(-3px)
-        }
-
-        .prod-img {
-            aspect-ratio: 3/4;
-            background: #181818;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #252525
-        }
-
-        .prod-img svg {
-            width: 48px;
-            height: 48px;
-            color: #3a3a3a
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            padding: 2px 10px;
-            border-radius: 20px
+        .filter-scroll::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <header id="nb" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 py-2.5 flex items-center justify-between">
@@ -143,295 +332,99 @@
                 <img src="images/logo-branca.svg" alt="Vinicius Garcia Jiu-Jitsu"
                     class="w-[130px] sm:w-[160px] h-auto max-h-12 object-contain">
             </a>
-            <a href="index.html#contato"
-                class="px-5 py-2 border border-white text-white text-[13px] font-semibold rounded hover:bg-white hover:text-black transition-all tracking-wide">Aula
-                Experimental</a>
+            <div class="flex items-center gap-3">
+                <a href="index.html#contato"
+                    class="px-5 py-2 border border-white text-white text-[13px] font-semibold rounded hover:bg-white hover:text-black transition-all tracking-wide">Aula
+                    Experimental</a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO / PAGE HEADER -->
-    <section class="relative pt-28 pb-12 px-5 border-b border-edge">
-        <div class="max-w-7xl mx-auto">
+    <!-- PAGE HERO -->
+    <section class="relative pt-28 pb-14 px-5 border-b border-edge overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                style="position:absolute;top:-80px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;">
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto relative">
             <div class="flex items-center gap-2 text-[12px] text-muted mb-6">
-                <a href="index.html" class="hover:text-white transition-colors">Início</a><span>/</span>
-                <span class="text-white">Uniformes & Equipamentos</span>
+                <a href="index.html" class="hover:text-white transition-colors">Início</a>
+                <span>/</span>
+                <span class="text-white">Uniformes &amp; Equipamentos</span>
             </div>
             <span class="g-line mb-5"></span>
-            <h1 class="font-display text-[clamp(2.8rem,7vw,5.5rem)] text-white tracking-wide leading-none mb-3">
-                UNIFORMES &<br /><span class="text-gold">EQUIPAMENTOS</span>
-            </h1>
-            <p class="text-muted text-[14px] max-w-lg">Produtos oficiais da escola. Performance e qualidade para você
-                treinar com o melhor equipamento.</p>
-        </div>
-    </section>
-
-    <!-- ═══════════════ BRAVOUR ═══════════════ -->
-    <section class="py-16 sm:py-24 px-5 border-b border-edge">
-        <div class="max-w-7xl mx-auto">
-
-            <!-- Section header -->
-            <div class="rv mb-12">
-                <span class="g-line mb-5"></span>
-                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                    <div>
-                        <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Linha Performance
-                        </p>
-                        <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-none">
-                            BRAVOUR</h2>
-                    </div>
-                    <p class="text-zinc-400 text-[13.5px] max-w-md leading-relaxed">
-                        Parceria com a marca Bravour: <strong class="text-white">fio importado dos EUA</strong> (mesmo
-                        fio da Nike),
-                        <strong class="text-white">proteção UV50+</strong>, alta durabilidade e compressão técnica para
-                        <strong class="text-white">redução de fadiga muscular</strong>.
-                    </p>
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+                <div>
+                    <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Loja Oficial</p>
+                    <h1 class="font-display text-[clamp(3rem,8vw,6rem)] text-white tracking-wide leading-none mb-3">
+                        UNIFORMES &amp;<br /><span class="text-gold">EQUIPAMENTOS</span>
+                    </h1>
+                    <p class="text-muted text-[14px] max-w-md leading-relaxed">Produtos oficiais da escola. Performance
+                        e qualidade para você treinar com o melhor equipamento no tatame.</p>
                 </div>
-            </div>
-
-            <!-- Products grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-
-                <!-- Camiseta dry fit -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">CAMISETA DRY FIT
-                            HIGHTECH</h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 185</p>
+                <div class="flex flex-col gap-2 text-right">
+                    <div
+                        class="inline-flex items-center gap-2 bg-raised border border-gold/25 rounded-xl px-5 py-3 self-start sm:self-end">
+                        <span class="text-gold text-lg">💳</span>
+                        <p class="text-[12px] text-zinc-300 text-left"><strong class="text-white">10% de desconto à
+                                vista.</strong><br />Até <strong class="text-white">4× no cartão</strong></p>
                     </div>
                 </div>
-
-                <!-- Rash manga curta -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">RASH MANGA CURTA
-                        </h3>
-                        <div class="space-y-1">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[11px] text-zinc-400">Refletiva</span>
-                                <span class="font-display text-xl text-gold tracking-wide">R$ 215</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-[11px] text-zinc-400">Normal</span>
-                                <span class="font-display text-xl text-white tracking-wide">R$ 205</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rash manga longa -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">RASH MANGA LONGA
-                        </h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230</p>
-                    </div>
-                </div>
-
-                <!-- Bermudas e Shorts -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12l2 6-4 14H8L4 8z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-1">BERMUDA / SHORT
-                        </h3>
-                        <p class="text-[11px] text-zinc-400 mb-3">New Fight ou Comprida</p>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230</p>
-                    </div>
-                </div>
-
-                <!-- Linha Compressão Short -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12l2 6-4 14H8L4 8z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour · Compressão</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">SHORT COMPRESSÃO
-                        </h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 195</p>
-                    </div>
-                </div>
-
-                <!-- Linha Compressão Calça/Body/Top -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <rect x="7" y="2" width="10" height="20" rx="2" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Bravour · Compressão</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">CALÇA / BODY / TOP
-                        </h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 230 <span
-                                class="text-base text-muted font-body font-normal">a</span> 245</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Nota infantil -->
-            <div class="mt-6 flex items-start gap-3 px-5 py-4 rounded-xl border border-gold/20 bg-gold/[.04]">
-                <span class="text-gold text-lg mt-0.5">👧</span>
-                <p class="text-zinc-400 text-[13px]">
-                    <span class="text-gold font-semibold">Para crianças:</span> Disponível
-                    <strong class="text-white">Short New</strong> e <strong class="text-white">Rash</strong> (Manga
-                    Curta e Manga Longa).
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ BRAUS ═══════════════ -->
-    <section class="py-16 sm:py-24 px-5 bg-surface border-b border-edge">
-        <div class="max-w-7xl mx-auto">
-
-            <!-- Section header -->
-            <div class="rv mb-12">
-                <span class="g-line mb-5"></span>
-                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                    <div>
-                        <p class="text-[10px] tracking-[.28em] text-gold uppercase font-semibold mb-2">Linha Kimonos</p>
-                        <h2 class="font-display text-[clamp(2rem,5vw,3.8rem)] text-white tracking-wide leading-none">
-                            BRAUS</h2>
-                    </div>
-                    <p class="text-zinc-400 text-[13.5px] max-w-md leading-relaxed">
-                        <strong class="text-white">Importados da Austrália</strong>, referência mundial em
-                        <strong class="text-white">conforto e durabilidade</strong>. O kimono preferido por atletas de
-                        elite.
-                    </p>
-                </div>
+    <!-- FILTERS -->
+    <section class="sticky top-[57px] z-40 bg-[#0a0a0a]/95 backdrop-blur border-b border-edge py-3 px-5">
+        <div class="max-w-7xl mx-auto flex flex-col gap-2.5">
+            <!-- Category filters -->
+            <div class="filter-scroll flex gap-2 pb-0.5">
+                <button class="filter-btn active" data-cat="all" onclick="filterProducts(this,'cat')">Todos</button>
+                <button class="filter-btn" data-cat="gi" onclick="filterProducts(this,'cat')">🥋 Kimonos (Gi)</button>
+                <button class="filter-btn" data-cat="nogi" onclick="filterProducts(this,'cat')">Rashguards &amp;
+                    Tops</button>
+                <button class="filter-btn" data-cat="bottoms" onclick="filterProducts(this,'cat')">Bermudas /
+                    Calças</button>
+                <button class="filter-btn" data-cat="lifestyle" onclick="filterProducts(this,'cat')">Lifestyle</button>
             </div>
-
-            <!-- Kimonos grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-6">
-
-                <!-- Light -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">LIGHT</h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 690</p>
-                    </div>
-                </div>
-
-                <!-- Eagle -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center gap-2 mb-1">
-                            <p class="text-[10px] text-muted uppercase tracking-widest">Braus · Kimono</p>
-                            <span class="badge bg-gold/15 text-gold border border-gold/30"
-                                style="font-size:8px;padding:1px 6px;">TOP</span>
-                        </div>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">EAGLE</h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 830</p>
-                    </div>
-                </div>
-
-                <!-- Infantil -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">INFANTIL</h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 590</p>
-                    </div>
-                </div>
-
-                <!-- Brim Baby -->
-                <div class="prod-card rv">
-                    <div class="prod-img">
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z" />
-                        </svg>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[10px] text-muted uppercase tracking-widest mb-1">Braus · Kimono</p>
-                        <h3 class="font-display text-lg text-white tracking-wide leading-tight mb-3">BRIM BABY</h3>
-                        <p class="font-display text-2xl text-gold tracking-wide">R$ 440</p>
-                    </div>
-                </div>
-
+            <!-- Gender filters -->
+            <div class="filter-scroll flex gap-2 items-center pb-0.5">
+                <span class="text-[10px] text-muted uppercase tracking-widest flex-shrink-0">Filtrar:</span>
+                <button class="gender-btn active" data-gen="all" onclick="filterProducts(this,'gen')">Todos</button>
+                <button class="gender-btn" data-gen="masc" onclick="filterProducts(this,'gen')">Masculino</button>
+                <button class="gender-btn" data-gen="fem" onclick="filterProducts(this,'gen')">Feminino</button>
+                <button class="gender-btn" data-gen="kids" onclick="filterProducts(this,'gen')">Infantil</button>
             </div>
-
-            <!-- Faixa personalizada -->
-            <div class="flex items-center justify-between gap-4 px-6 py-4 rounded-2xl border border-edge bg-raised">
-                <div class="flex items-center gap-3">
-                    <span class="text-gold text-xl">🥋</span>
-                    <div>
-                        <p class="text-[10px] tracking-[.2em] text-gold uppercase font-semibold">Acessório</p>
-                        <p class="text-white text-[14px] font-semibold">Faixa Personalizada</p>
-                    </div>
-                </div>
-                <span class="font-display text-2xl text-white tracking-wide whitespace-nowrap">R$ 120</span>
-            </div>
-
         </div>
     </section>
 
-    <!-- ═══════════════ CTA / FOOTER DA LOJA ═══════════════ -->
-    <section class="py-16 sm:py-20 px-5 text-center">
+    <!-- RESULTS COUNT -->
+    <div class="max-w-7xl mx-auto px-5 pt-6 pb-2">
+        <p id="result-count" class="text-[12px] text-muted tracking-wide"></p>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <main class="max-w-7xl mx-auto px-5 pb-24">
+        <div id="grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-5"></div>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="hidden text-center py-20">
+            <p class="text-4xl mb-3">🔍</p>
+            <p class="text-white font-semibold mb-1">Nenhum produto encontrado</p>
+            <p class="text-muted text-sm">Tente outro filtro.</p>
+        </div>
+    </main>
+
+    <!-- CTA WHATSAPP -->
+    <section class="py-16 px-5 border-t border-edge text-center bg-surface">
         <div class="max-w-xl mx-auto">
             <span class="g-line mx-auto mb-6"></span>
             <h2 class="font-display text-[clamp(2rem,5vw,3.2rem)] text-white tracking-wide mb-3">CONSULTE<br /><span
                     class="text-gold">DISPONIBILIDADE</span></h2>
-            <p class="text-zinc-400 text-[14px] mb-3 leading-relaxed">
-                Entre em contato para verificar estoque, tamanhos e modelos disponíveis.
-            </p>
-            <div class="inline-flex items-center gap-2 bg-raised border border-gold/25 rounded-xl px-5 py-3 mb-8">
-                <span class="text-gold">💳</span>
-                <p class="text-[13px] text-zinc-300">
-                    <strong class="text-white">10% de desconto à vista.</strong>
-                    Parcelamento em até <strong class="text-white">4× no cartão</strong> (consulte condições).
-                </p>
-            </div>
-            <br />
-            <a href="https://wa.me/556599876024?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20uniformes%20e%20equipamentos%20da%20Escola%20Vinicius%20Garcia."
+            <p class="text-zinc-400 text-[14px] mb-8 leading-relaxed">Entre em contato para verificar estoque, tamanhos
+                e modelos disponíveis. Atendimento pelo WhatsApp.</p>
+            <a href="https://wa.me/556599876024?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20produtos%20da%20Loja%20Vinicius%20Garcia."
                 target="_blank" rel="noopener"
                 class="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold text-[13px] tracking-[.14em] rounded-xl hover:bg-[#20b858] transition-all uppercase shadow-lg shadow-[#25D366]/25">
                 <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
@@ -442,29 +435,252 @@
                         d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
                         fill="#25D366" />
                 </svg>
-                Consultar Disponibilidade no WhatsApp
+                Falar no WhatsApp
             </a>
         </div>
     </section>
 
-    <!-- Floating WA -->
+    <!-- WA Float -->
     <a id="wa"
-        href="https://wa.me/556599876024?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20disponibilidade%20de%20uniformes%20e%20equipamentos%20da%20Escola%20Vinicius%20Garcia."
+        href="https://wa.me/556599876024?text=Ol%C3%A1!%20Tenho%20interesse%20nos%20produtos%20da%20Loja%20Vinicius%20Garcia."
         target="_blank" rel="noopener" aria-label="WhatsApp">
-        <span><svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+        <span>
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
                 <path
                     d="M16 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.334.626 4.619 1.815 6.624L2.667 29.333l6.896-1.773A13.3 13.3 0 0016 29.333c7.363 0 13.333-5.97 13.333-13.333S23.363 2.667 16 2.667z"
                     fill="white" />
                 <path
                     d="M22.61 19.614c-.318-.159-1.882-.929-2.173-1.035-.292-.106-.504-.159-.716.16-.212.318-.822 1.034-1.008 1.247-.186.212-.371.239-.689.08-.317-.16-1.341-.494-2.554-1.576-.944-.842-1.581-1.882-1.767-2.2-.186-.319-.02-.491.14-.65.144-.143.318-.372.477-.557.16-.186.213-.319.319-.531.106-.213.053-.398-.027-.557-.08-.16-.716-1.727-.98-2.364-.258-.621-.52-.537-.716-.547l-.61-.011c-.212 0-.557.08-.849.398s-1.113 1.088-1.113 2.655 1.14 3.08 1.299 3.292c.159.212 2.245 3.428 5.44 4.806.76.328 1.353.524 1.816.671.763.243 1.458.209 2.006.127.612-.091 1.882-.769 2.148-1.511.265-.742.265-1.378.186-1.511-.08-.133-.292-.212-.61-.372z"
                     fill="#25D366" />
-            </svg></span>
+            </svg>
+        </span>
     </a>
 
     <script>
+        // ─── PRODUCT DATA ────────────────────────────────────────────────────────────
+        const PRODUCTS = [
+            // ── KIMONOS (GI) ──
+            {
+                id: 1, cat: 'gi', gen: ['masc', 'fem'],
+                img: 'assets/loja/kimono-braus-adulto-light.jpg',
+                placeholder: 'kimono-braus-adulto-light.jpg',
+                badges: [{ label: 'Importado', style: 'badge-gold' }, { label: 'Premium', style: 'badge-white' }],
+                title: 'BRAUS Adulto Light',
+                subtitle: 'Tecido leve e confortável — uso diário',
+                alert: null,
+                waText: 'Kimono BRAUS Adulto Light'
+            },
+            {
+                id: 2, cat: 'gi', gen: ['masc', 'fem'],
+                img: 'assets/loja/kimono-braus-adulto-eagle.jpg',
+                placeholder: 'kimono-braus-adulto-eagle.jpg',
+                badges: [{ label: 'Importado', style: 'badge-gold' }, { label: 'Competição', style: 'badge-blue' }],
+                title: 'BRAUS Adulto Eagle',
+                subtitle: 'Tecelagem dupla para alta performance',
+                alert: null,
+                waText: 'Kimono BRAUS Adulto Eagle'
+            },
+            {
+                id: 3, cat: 'gi', gen: ['kids'],
+                img: 'assets/loja/kimono-braus-kids-light.jpg',
+                placeholder: 'kimono-braus-kids-light.jpg',
+                badges: [{ label: 'Infantil', style: 'badge-white' }, { label: 'Importado', style: 'badge-gold' }],
+                title: 'BRAUS Kids Light',
+                subtitle: 'Leve e confortável para os pequenos',
+                alert: null,
+                waText: 'Kimono BRAUS Kids Light'
+            },
+            {
+                id: 4, cat: 'gi', gen: ['kids'],
+                img: 'assets/loja/kimono-nacional-brim-infantil.jpg',
+                placeholder: 'kimono-nacional-brim-infantil.jpg',
+                badges: [{ label: 'Infantil', style: 'badge-white' }, { label: 'Nacional', style: 'badge-white' }],
+                title: 'Kimono Nacional Brim',
+                subtitle: 'Sarja reforçada – durabilidade para crianças',
+                alert: null,
+                waText: 'Kimono Nacional Brim Infantil'
+            },
+
+            // ── RASHGUARDS & TOPS ──
+            {
+                id: 5, cat: 'nogi', gen: ['masc', 'fem', 'kids'],
+                img: 'assets/loja/rashguard-classic-logomarca-central.jpg',
+                placeholder: 'rashguard-classic-logomarca-central.jpg',
+                badges: [{ label: 'Unissex', style: 'badge-white' }, { label: 'Infantil', style: 'badge-white' }],
+                title: 'Rashguard Classic — Logo Central',
+                subtitle: 'Manga Longa / Manga Curta disponível',
+                alert: null,
+                waText: 'Rashguard Classic Logomarca Central'
+            },
+            {
+                id: 6, cat: 'nogi', gen: ['masc', 'fem', 'kids'],
+                img: 'assets/loja/rashguard-minimalista-logo-peito.jpg',
+                placeholder: 'rashguard-minimalista-logo-peito.jpg',
+                badges: [{ label: 'Unissex', style: 'badge-white' }, { label: 'Infantil', style: 'badge-white' }],
+                title: 'Rashguard Minimalista — Logo Peito',
+                subtitle: 'Manga Longa / Manga Curta disponível',
+                alert: null,
+                waText: 'Rashguard Minimalista Logo Peito'
+            },
+            {
+                id: 7, cat: 'nogi', gen: ['masc', 'fem', 'kids'],
+                img: 'assets/loja/rashguard-high-performance-termica.jpg',
+                placeholder: 'rashguard-high-performance-termica.jpg',
+                badges: [{ label: 'Térmica Refletiva', style: 'badge-gold' }, { label: 'Unissex', style: 'badge-white' }],
+                title: 'Rashguard High Performance',
+                subtitle: 'Tecido térmico refletivo — Longa/Curta',
+                alert: null,
+                waText: 'Rashguard High Performance Térmica Refletiva'
+            },
+            {
+                id: 8, cat: 'nogi', gen: ['fem'],
+                img: 'assets/loja/body-rashguard-feminino.jpg',
+                placeholder: 'body-rashguard-feminino.jpg',
+                badges: [{ label: 'Feminino', style: 'badge-gold' }, { label: 'Manga Longa', style: 'badge-white' }],
+                title: 'Body / Rashguard Feminino',
+                subtitle: 'Compressão total — Manga Longa',
+                alert: null,
+                waText: 'Body/Rashguard Feminino Manga Longa'
+            },
+            {
+                id: 9, cat: 'nogi', gen: ['fem'],
+                img: 'assets/loja/top-feminino-compressao-alta.jpg',
+                placeholder: 'top-feminino-compressao-alta.jpg',
+                badges: [{ label: 'Feminino', style: 'badge-gold' }, { label: 'Alta Sustentação', style: 'badge-blue' }],
+                title: 'Top Feminino de Compressão',
+                subtitle: 'Alta sustentação para treinos intensos',
+                alert: null,
+                waText: 'Top Feminino de Compressão Alta Sustentação'
+            },
+
+            // ── BERMUDAS & CALÇAS ──
+            {
+                id: 10, cat: 'bottoms', gen: ['masc', 'fem'],
+                img: 'assets/loja/calca-compressao.jpg',
+                placeholder: 'calca-compressao.jpg',
+                badges: [{ label: 'Masculino', style: 'badge-white' }, { label: 'Feminino', style: 'badge-gold' }],
+                title: 'Calça de Compressão',
+                subtitle: 'Compressão muscular — Masc. e Fem.',
+                alert: null,
+                waText: 'Calça de Compressão'
+            },
+            {
+                id: 11, cat: 'bottoms', gen: ['masc'],
+                img: 'assets/loja/short-compressao-masculino.jpg',
+                placeholder: 'short-compressao-masculino.jpg',
+                badges: [{ label: 'Masculino', style: 'badge-white' }, { label: 'Compressão', style: 'badge-blue' }],
+                title: 'Short de Compressão',
+                subtitle: 'Masculino — Alto desempenho',
+                alert: null,
+                waText: 'Short de Compressão Masculino'
+            },
+            {
+                id: 12, cat: 'bottoms', gen: ['masc'],
+                img: 'assets/loja/bermuda-nogi-masculino-adulto.jpg',
+                placeholder: 'bermuda-nogi-masculino-adulto.jpg',
+                badges: [{ label: 'No-Gi', style: 'badge-blue' }, { label: 'Masculino', style: 'badge-white' }],
+                title: 'Bermuda No-Gi Adulto',
+                subtitle: 'Corte mais comprido — Masculino',
+                alert: null,
+                waText: 'Bermuda No-Gi Masculina Adulto'
+            },
+            {
+                id: 13, cat: 'bottoms', gen: ['masc', 'kids'],
+                img: 'assets/loja/short-new-fight.jpg',
+                placeholder: 'short-new-fight.jpg',
+                badges: [{ label: 'Curto', style: 'badge-white' }, { label: 'Homem / Criança', style: 'badge-white' }],
+                title: 'Short New Fight',
+                subtitle: 'Modelo curto — Adulto e Infantil',
+                alert: { text: '<strong>Adultos:</strong> Uso obrigatório com compressão por baixo.' },
+                waText: 'Short New Fight'
+            },
+
+            // ── LIFESTYLE ──
+            {
+                id: 14, cat: 'lifestyle', gen: ['masc', 'fem'],
+                img: 'assets/loja/camiseta-dri-fit-high-tech.jpg',
+                placeholder: 'camiseta-dri-fit-high-tech.jpg',
+                badges: [{ label: 'Aero Dry', style: 'badge-gold' }, { label: 'Dri-Fit', style: 'badge-blue' }],
+                title: 'Camiseta Dri-Fit High Tech',
+                subtitle: 'Aero Dry — Preta, Branca ou Cinza',
+                alert: null,
+                waText: 'Camiseta Dri-Fit High Tech'
+            }
+        ];
+
+        // ─── STATE ───────────────────────────────────────────────────────────────────
+        let activeCat = 'all';
+        let activeGen = 'all';
+
+        // ─── RENDER ──────────────────────────────────────────────────────────────────
+        function buildCard(p) {
+            const badgeHTML = p.badges.map(b => `<span class="badge ${b.style}">${b.label}</span>`).join('');
+            const alertHTML = p.alert
+                ? `<div class="alert-banner"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg><p>${p.alert.text}</p></div>`
+                : '';
+            const waLink = `https://wa.me/556599876024?text=Ol%C3%A1!%20Tenho%20interesse%20em%3A%20${encodeURIComponent(p.waText)}`;
+
+            return `
+  <div class="prod-card rv on" data-cat="${p.cat}" data-gen='${JSON.stringify(p.gen)}' data-id="${p.id}">
+    <div class="prod-img">
+      <img src="${p.img}" alt="${p.title}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        loading="lazy" />
+      <div class="img-placeholder" style="display:none;">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H5v10a1 1 0 001 1h12a1 1 0 001-1V10h1.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/>
+        </svg>
+        <span>${p.placeholder}</span>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 px-4 pt-4 pb-1">${badgeHTML}</div>
+    <div class="px-4 pt-2 pb-3 flex-1">
+      <h3 class="font-display text-[1.1rem] sm:text-[1.2rem] text-white tracking-wide leading-tight mb-1">${p.title}</h3>
+      <p class="text-[11.5px] text-muted leading-snug">${p.subtitle}</p>
+    </div>
+    ${alertHTML}
+    <a href="${waLink}" target="_blank" rel="noopener" class="btn-detail">Ver Detalhes / Comprar →</a>
+  </div>`;
+        }
+
+        function render() {
+            const grid = document.getElementById('grid');
+            const empty = document.getElementById('empty-state');
+            const count = document.getElementById('result-count');
+            const filtered = PRODUCTS.filter(p => {
+                const catOk = activeCat === 'all' || p.cat === activeCat;
+                const genOk = activeGen === 'all' || p.gen.includes(activeGen);
+                return catOk && genOk;
+            });
+            grid.innerHTML = filtered.map(buildCard).join('');
+            if (filtered.length === 0) { empty.classList.remove('hidden'); grid.classList.add('hidden'); }
+            else { empty.classList.add('hidden'); grid.classList.remove('hidden'); }
+            count.textContent = `${filtered.length} produto${filtered.length !== 1 ? 's' : ''} encontrado${filtered.length !== 1 ? 's' : ''}`;
+            grid.querySelectorAll('.rv').forEach(el => {
+                el.classList.remove('on');
+                setTimeout(() => el.classList.add('on'), 40);
+            });
+        }
+
+        function filterProducts(btn, type) {
+            if (type === 'cat') {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCat = btn.dataset.cat;
+            } else {
+                document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeGen = btn.dataset.gen;
+            }
+            render();
+        }
+
+        // ─── NAVBAR SCROLL ───────────────────────────────────────────────────────────
         const nb = document.getElementById('nb');
         window.addEventListener('scroll', () => nb.classList.toggle('sc', scrollY > 40), { passive: true });
-        document.querySelectorAll('.rv').forEach(el => new IntersectionObserver(([e]) => { if (e.isIntersecting) e.target.classList.add('on') }, { threshold: .1 }).observe(el));
+
+        // ─── INIT ────────────────────────────────────────────────────────────────────
+        render();
     </script>
 </body>
 
